@@ -6,4 +6,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "go", "run", "--env-file", "./.env", "main.go" ]
+CMD [ "go", "run", "main.go" ]
