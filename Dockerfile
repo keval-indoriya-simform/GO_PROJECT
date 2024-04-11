@@ -6,6 +6,6 @@ COPY . .
 
 EXPOSE 8080
 
-ENTRYPOINT [ ".env" ]
+RUN .env
 
 CMD [ "go", "run", "main.go" ]
