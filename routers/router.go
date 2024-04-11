@@ -3,15 +3,15 @@ package routers
 import (
 	"Application/controllers"
 	_ "Application/docs"
-	"Application/initializers"
 	"Application/middlewares"
+	"net/http"
+	"os"
+
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"net/http"
-	"os"
 )
 
 var (
@@ -20,9 +20,6 @@ var (
 )
 
 func init() {
-
-	// LOAD ENV VARIABLES
-	initializers.LoadEnvVariables()
 
 	sessionSecretKey := []byte(os.Getenv("SESSION_SECRET_KEY"))
 	sessionStore := cookie.NewStore(sessionSecretKey)
