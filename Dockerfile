@@ -6,4 +6,6 @@ COPY . .
 
 EXPOSE 8080
 
+RUN env >> .env
+
 CMD [ "go", "run", "main.go" ]
