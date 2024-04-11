@@ -4,8 +4,6 @@ WORKDIR /go/src/app
 
 COPY . .
 
-EXPOSE 3000
-
-RUN cat /porc/1/environ >> /go/src/app/.env
+EXPOSE 8080
 
 CMD [ "go", "run", "main.go" ]
