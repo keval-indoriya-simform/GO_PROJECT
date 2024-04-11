@@ -5,7 +5,6 @@ import (
 	"Application/routers"
 	"log"
 	"os"
-	"os/exec"
 	"strconv"
 )
 
@@ -32,15 +31,6 @@ func init() {
 // @BasePath	/api/v1
 // @schemes	http
 func main() {
-
-	out, err := exec.Command("touch .env").Output()
-	log.Println(out, "errr", err)
-
-	out, err = exec.Command("docker exec go-prod env >> .env").Output()
-	log.Println(out, "errr", err)
-
-	out, err = exec.Command("cat .env").Output()
-	log.Println(out, "errr", err)
 
 	// START SERVER
 	if serverRunError := routers.Route.Run(":" + os.Getenv("SERVER_RUN_PORT")); serverRunError != nil {

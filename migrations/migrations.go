@@ -7,10 +7,6 @@ import (
 	"time"
 )
 
-func init() {
-	initializers.LoadEnvVariables()
-}
-
 type AlterUniqueConstraint struct {
 	TableName      string
 	ConstraintName string
