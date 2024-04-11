@@ -6,13 +6,15 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func init() {
 
 	// SET PAGINATION LIMIT
-	models.PageLimit, _ = strconv.Atoi(os.Getenv("PAGE_LIMIT"))
-	models.OrderBy = os.Getenv("ORDER_BY")
+
+	models.PageLimit, _ = strconv.Atoi(strings.ReplaceAll(os.Getenv("PAGE_LIMIT"), `"`, ``))
+	models.OrderBy = strings.ReplaceAll(os.Getenv("ORDER_BY"), `"`, ``)
 }
 
 //	@title			Network Management Solutions API
@@ -33,7 +35,7 @@ func init() {
 func main() {
 
 	// START SERVER
-	if serverRunError := routers.Route.Run(":" + os.Getenv("SERVER_RUN_PORT")); serverRunError != nil {
+	if serverRunError := routers.Route.Run(":" + strings.ReplaceAll(os.Getenv("SERVER_RUN_PORT"), `"`, ``)); serverRunError != nil {
 		log.Fatal(serverRunError)
 	}
 

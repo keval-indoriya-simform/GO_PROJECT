@@ -1,8 +1,10 @@
 package models
 
 import (
-	"github.com/golang-jwt/jwt/v5"
 	"os"
+	"strings"
+
+	"github.com/golang-jwt/jwt/v5"
 )
 
 type Claims struct {
@@ -14,7 +16,7 @@ type Claims struct {
 }
 
 func GetSecretKey() []byte {
-	secret := os.Getenv("JWT_SECRET")
+	secret := strings.ReplaceAll(os.Getenv("JWT_SECRET"), `"`, ``)
 	if secret == "" {
 		secret = "jwt_secret"
 	}

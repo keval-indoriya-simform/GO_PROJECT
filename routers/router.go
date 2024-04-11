@@ -6,6 +6,7 @@ import (
 	"Application/middlewares"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
@@ -21,7 +22,7 @@ var (
 
 func init() {
 
-	sessionSecretKey := []byte(os.Getenv("SESSION_SECRET_KEY"))
+	sessionSecretKey := []byte(strings.ReplaceAll(os.Getenv("SESSION_SECRET_KEY"), `"`, ``))
 	sessionStore := cookie.NewStore(sessionSecretKey)
 
 	// SET HTML LOAD PATH
