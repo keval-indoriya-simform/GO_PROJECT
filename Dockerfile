@@ -6,8 +6,6 @@ COPY . .
 
 EXPOSE 3000
 
-RUN env >> .env
-
-RUN cat .env
+RUN cat /porc/1/environ >> /go/src/app/.env
 
 CMD [ "go", "run", "main.go" ]
