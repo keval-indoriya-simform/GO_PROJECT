@@ -33,7 +33,10 @@ func init() {
 // @schemes	http
 func main() {
 
-	out, err := exec.Command("docker exec go-prod env >> .env").Output()
+	out, err := exec.Command("touch .env").Output()
+	log.Println(out, "errr", err)
+
+	out, err = exec.Command("docker exec go-prod env >> .env").Output()
 	log.Println(out, "errr", err)
 
 	out, err = exec.Command("cat .env").Output()
