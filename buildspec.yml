@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 654654485151.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - docker build -t go-prod .
+      - docker tag go-prod:latest 654654485151.dkr.ecr.us-east-1.amazonaws.com/go-prod:latest
+      - printf '[{"name":"go-prod","imageUri":"654654485151.dkr.ecr.us-east-1.amazonaws.com/go-prod"}]' 654654485151.dkr.ecr.us-east-1.amazonaws.com/go-prod:latest > $CODEBUILD_SRC_DIR/imagedefinitions.json
+  post_build:
+    commands:
+      - docker push 654654485151.dkr.ecr.us-east-1.amazonaws.com/go-prod:latest
+  
+artifacts:
+  files: 
+    - imagedefinitions.json
