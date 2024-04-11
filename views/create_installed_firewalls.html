@@ -1,0 +1,151 @@
+{{ template "header.html" }}
+<div id="toasts"></div>
+<div class="col-10 main-content-height">
+  <div class="row d-flex align-items-center justify-content-center my-5 mx-0">
+    <div class="col-10">
+      <form class="row g-3 needs-validation" id="form-config" novalidate>
+        <input type="hidden" id="user_id" value={{.user_id}}/>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Basic
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="validationCustom05" class="form-label my-1">Customer Locations<span class="text-danger fw-bold ms-1">*</span></label>
+                  <select class="selectpicker show-menu-arrow w-100" id="validationCustom05" data-live-search="true" required>
+                    <option disabled selected value="">Select Customer Location</option>
+                  </select>
+
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom02" class="form-label my-1">Customer LAN (on-site) :</label>
+                  <input type="text" class="form-control" id="validationCustom02" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom03" class="form-label my-1">Brand :</label>
+                  <input type="text" class="form-control" id="validationCustom03" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom04" class="form-label my-1">Equipment :</label>
+                  <input type="text" class="form-control" id="validationCustom04" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="datepicker-1" class="form-label my-1">Install Date :</label>
+                  <div class="input-group has-validation">
+                    <input type="date" class="form-control" id="datepicker-1" aria-describedby="inputGroupPrepend">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustom06" class="form-label my-1">FireWall WAN-1 IPv4<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="text" class="form-control" id="validationCustom06" value="" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustom07" class="form-label my-1">IP Range<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="text" class="form-control" id="validationCustom07" value="" required>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom08" class="form-label my-1">Subnet Mask WAN-1 IPv4 :</label>
+                  <input type="text" class="form-control" id="validationCustom08" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom09" class="form-label my-1">GATEWAY WAN-1 IPv4 :</label>
+                  <input type="text" class="form-control" id="validationCustom09" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom10" class="form-label my-1">FireWall WAN-1 IPv6 :</label>
+                  <input type="text" class="form-control" id="validationCustom10" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom11" class="form-label my-1">Subnet Mask WAN-1 IPv6 :</label>
+                  <input type="text" class="form-control" id="validationCustom11" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom12" class="form-label my-1">GATEWAY WAN-1 IPv6 :</label>
+                  <input type="text" class="form-control" id="validationCustom12" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom13" class="form-label my-1">Firewall IPv4 LAN address :</label>
+                  <input type="text" class="form-control" id="validationCustom13" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom14" class="form-label my-1">Firewall IPv6 LAN address :</label>
+                  <input type="text" class="form-control" id="validationCustom14" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom15" class="form-label my-1">Current Version :</label>
+                  <input type="text" class="form-control" id="validationCustom15" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom16" class="form-label my-1">Version Backup :</label>
+                  <input type="text" class="form-control" id="validationCustom16" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="datepicker-2" class="form-label my-1">Backup Date :</label>
+                  <div class="input-group has-validation">
+                    <input type="date" class="form-control" id="datepicker-2" aria-describedby="inputGroupPrepend">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom17" class="form-label my-1">Extra :</label>
+                  <input type="text" class="form-control" id="validationCustom17" value="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample2">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                INTERNET PROVIDER 2
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="validationCustom18" class="form-label my-1">FireWall WAN-2 IPv4 :</label>
+                  <input type="text" class="form-control" id="validationCustom18" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom19" class="form-label my-1">Subnet Mask WAN-2 IPv4 :</label>
+                  <input type="text" class="form-control" id="validationCustom19" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom20" class="form-label my-1">GATEWAY WAN-2 IPv4 :</label>
+                  <input type="text" class="form-control" id="validationCustom20" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom21" class="form-label my-1">FireWall WAN-2 IPv6 :</label>
+                  <input type="text" class="form-control" id="validationCustom21" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom22" class="form-label my-1">Subnet Mask WAN-2 IPv6 :</label>
+                  <input type="text" class="form-control" id="validationCustom22" value="">
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustom23" class="form-label my-1">GATEWAY WAN-2 IPv6 :</label>
+                  <input type="text" class="form-control" id="validationCustom23" value="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary submit me-2" type="button" id="submit-btn">Create</button>
+          <button class="btn btn-primary reset" type="button" id="cancel-btn" onclick="cancelValidation()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="/static/js/create_installed_firewalls.js"></script>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+{{ template "footer.html" }}

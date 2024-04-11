@@ -1,0 +1,182 @@
+{{ template "header.html"}}
+
+<div class="text-nowrap mt-5 col-9 mx-auto">
+  <input type="hidden" id="user_id" value={{.user_id}}/>
+  <button class="btn btn-dark" id="delete-data-btn">Delete</button>
+  <table id="cloudPublicIpTable" class="display w-100">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Cloud Public IP</th>
+      <th>Customer Locations</th>
+      <th>Post Forward IP</th>
+      <th>Cloud VM Name</th>
+    </tr>
+    </thead>
+  </table>
+  <div class="paginating-container pagination-solid">
+    <ul class="pagination">
+    </ul>
+  </div>
+  <div class="container-fluid popup-content" id="popup-1">
+    <div class="container">
+      <div class="row justify-content-center" id="card">
+        <div class="col-xl-4 col-md-8 mb-3">
+          <div  class="card mb-2 shadow-sm h-100">
+            <div class="card-body h-100">
+              <div class="card-text d-flex flex-column justify-content-between h-100">
+                <div class="">
+                  <i class="fas fa-times close"></i>
+                  <table class="mt-4">
+                    <tr>
+                      <td class="align-top col-6">Customer Name: </td>
+                      <td id="customer_name" class="col-6"></td>
+                    </tr>
+                    <tr>
+                      <td class="align-top col-6">Location: </td>
+                      <td id="customer_location" class="col-6"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade modal-xl" tabindex="-1" role="dialog" id="cloudPublicIpModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Edit Cloud Public Ip</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body p-5 pt-0 row g-3 needs-validation" id="form-config" novalidate>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Basic
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="validationCloudPublicIps" class="form-label my-1">Cloud Public IP</label>
+                  <input type="text" class="form-control" id="validationCloudPublicIps" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustomerLocation" class="form-label my-1">Customer Location</label>
+                  <input type="text" class="form-control" id="validationCustomerLocation" value="" readonly disabled>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationPostForwardIp" class="form-label my-1">Post Forward IP</label>
+                  <select class="selectpicker show-menu-arrow w-100" id="validationPostForwardIp" name="validationPostForwardIp" data-live-search="true" required>
+                    <option disabled selected value="">Select post forward ip</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one ip.
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCloudVmName" class="form-label my-1">Cloud VM Name</label>
+                  <input type="text" class="form-control" id="validationCloudVmName" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="submit" id="update-btn">Update</button>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="reset" id="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_cloud_public_ip.js"></script>
+{{/*<script>*/}}
+{{/*  $(document).ready(async function(){*/}}
+{{/*    $('#cloudPublicIpTable').DataTable({*/}}
+{{/*      "ajax": {*/}}
+{{/*        "url": "http://localhost:8080/api/v1/cloud-public-ips",*/}}
+{{/*        "dataSrc": "data"*/}}
+{{/*      },*/}}
+{{/*      deferRender: true,*/}}
+{{/*      scrollY:        "60vh",*/}}
+{{/*      scrollX:        "80%",*/}}
+{{/*      scrollCollapse: true,*/}}
+{{/*      scroller:       true,*/}}
+{{/*      responsive: true,*/}}
+{{/*      paging: false,*/}}
+{{/*      order: [2, "asc"],*/}}
+{{/*      columns: [*/}}
+{{/*        {*/}}
+{{/*          data: null,*/}}
+{{/*          className: "dt-center editor-edit",*/}}
+{{/*          defaultContent: '<i class="fa fa-pencil"/>',*/}}
+{{/*          orderable: false*/}}
+{{/*        },*/}}
+{{/*        {*/}}
+{{/*          data: null,*/}}
+{{/*          className: "dt-center editor-delete",*/}}
+{{/*          defaultContent: '<i class="fa fa-trash"/>',*/}}
+{{/*          orderable: false*/}}
+{{/*        },*/}}
+{{/*        { data: 'ip_address' },*/}}
+{{/*        {*/}}
+{{/*          data: "customer_location",*/}}
+{{/*          className: "popup",*/}}
+{{/*          render: function (data) {*/}}
+{{/*            return '<span class="popup-element">' + data + '</span>';*/}}
+{{/*          }*/}}
+{{/*        },*/}}
+{{/*        { data: 'post_forward_ip' },*/}}
+{{/*        { data: 'cloud_vm_name' },*/}}
+{{/*      ],*/}}
+{{/*    });*/}}
+{{/*    $('#cloudPublicIpTable').on('click','.popup', function(event){*/}}
+{{/*      if (!$(event.target).hasClass("popup-element")) {*/}}
+{{/*        $(".popup-content").css("display", "flex");*/}}
+{{/*      }*/}}
+{{/*      var clickedData = $(this).text();*/}}
+{{/*      console.log(clickedData)*/}}
+{{/*      fetch('/api/v1/customer-locations')*/}}
+{{/*              .then(response => response.json())*/}}
+{{/*              .then(data => {*/}}
+{{/*                [data].forEach(item => {*/}}
+{{/*                  for(var i=0; i<=[data].length; i++){*/}}
+{{/*                    if(clickedData===item.data[i].name){*/}}
+{{/*                      $("#customer_name").text(item.data[i].customers)*/}}
+{{/*                      $("#customer_location").text(item.data[i].name)*/}}
+{{/*                    }*/}}
+{{/*                  }*/}}
+
+{{/*                });*/}}
+{{/*              });*/}}
+{{/*    });*/}}
+{{/*    $(".close").click(function (){*/}}
+{{/*      $(".popup-content").css("display", "none");*/}}
+{{/*    });*/}}
+{{/*  });*/}}
+{{/*</script>*/}}
+{{ template "footer.html"}}

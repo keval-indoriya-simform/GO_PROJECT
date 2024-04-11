@@ -1,0 +1,89 @@
+{{ template "header.html" }}
+<div class="col-10 main-content-height">
+  <div class="row d-flex align-items-center justify-content-center my-5 mx-0">
+    <div class="col-10">
+      <form class="row g-3 needs-validation" novalidate>
+        <input type="hidden" id="user_id" value={{.user_id}}/>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Basic
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="name" class="form-label my-1">Customer Name<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="text" class="form-control" id="name" value="" required>
+                  <div class="invalid-feedback">
+                    Required !
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="cloud_or_onsite" class="form-label my-1">Cloud / Onsite<span class="text-danger fw-bold ms-1">*</span></label>
+                  <select class="selectpicker show-menu-arrow w-100" id="cloud_or_onsite" name="cloud_or_onsite" data-live-search="true" required>
+                    <option disabled selected value="">Select Cloud Or Onsite</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one Type.
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="backup_software" class="form-label my-1">Backup Software</label>
+                  <input type="text" class="form-control" id="backup_software">
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="active_check">
+                    <label class="form-check-label" for="active_check" style="margin-top: 1.82vh;margin-left: 1vh;">Active</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="voip_check">
+                    <label class="form-check-label" for="voip_check" style="margin-top: 1.82vh;margin-left: 1vh;">VOIP</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="internet_check">
+                    <label class="form-check-label" for="internet_check" style="margin-top: 1.82vh;margin-left: 1vh;">Internet</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="firewall_check">
+                    <label class="form-check-label" for="firewall_check" style="margin-top: 1.82vh;margin-left: 1vh;">Firewall</label>
+                  </div>
+                </div>
+                <div class="col-md-2" style="white-space: nowrap">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="hardware_as_a_service_check">
+                    <label class="form-check-label" for="hardware_as_a_service_check" style="margin-top: 1.82vh;margin-left: 1vh; ">Hardware As a Service</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="description" class="form-label my-1">Description</label>
+                  <textarea class="form-control" id="description" aria-describedby="inputGroupPrepend" rows="10" cols="150"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary submit me-2" type="button" id="submit-btn">Submit</button>
+          <button class="btn btn-primary reset" type="button" id="reset-btn" onclick="cancelValidation()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/ping.js"></script>
+<script type="text/javascript" src="/static/js/create_customer.js"></script>
+{{ template "footer.html" }}

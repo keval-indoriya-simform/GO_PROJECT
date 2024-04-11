@@ -1,0 +1,78 @@
+{{ template "header.html" }}
+
+<div class="col-10 main-content-height">
+  <div class="row d-flex align-items-center justify-content-center my-5 mx-0">
+    <div class="col-10">
+      <form class="row g-3 needs-validation" novalidate>
+        <input type="hidden" id="user_id" value={{.user_id}}/>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Overview
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="subject" class="form-label my-1">Subject<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="text" class="form-control" id="subject" value="" required>
+                  <div class="invalid-feedback">
+                    Required !
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <label for="customer_location_name" class="form-label my-1">Customer Location Name<span class="text-danger fw-bold ms-1">*</span></label>
+                  <select class="selectpicker show-menu-arrow w-100" id="customer_location_name" name="customer_location_name" data-live-search="true" required>
+                    <option disabled selected value="">Select Customer Location</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one location.
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
+                  <label for="attachment" class="form-label my-1">Attachment</label>
+                    <input type="file" class="form-control" id="attachment" aria-describedby="inputGroupPrepend">
+                </div>
+                <div class="col-md-12">
+                  <label for="note" class="form-label my-1">Note</label>
+                  <textarea class="form-control" id="note" aria-describedby="inputGroupPrepend" rows="10" cols="150"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                Other
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-6">
+                  <label for="assign_to" class="form-label my-1">Assigned To<span class="text-danger fw-bold ms-1">*</span></label>
+                  <select class="selectpicker show-menu-arrow w-100" id="assign_to" name="assign_to" data-live-search="true" required>
+                    <option disabled selected value="">Select User</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one User.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary submit me-2" type="button" id="submit-btn">Submit</button>
+          <button class="btn btn-primary reset" type="button" id="reset-btn" onclick="cancelValidation()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/ping.js"></script>
+<script type="text/javascript" src="/static/js/create_note.js"></script>
+{{ template "footer.html" }}

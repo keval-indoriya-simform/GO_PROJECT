@@ -1,0 +1,179 @@
+{{ template "header.html"}}
+<div class="text-nowrap mt-5 col-9 mx-auto">
+  <input type="hidden" id="user_id" value={{.user_id}}/>
+  <button class="btn btn-dark" id="delete-btn">Delete</button>
+  <table id="serverTable" class="display w-100">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Host Name</th>
+      <th>Customers</th>
+      <th>Hardware as Service</th>
+      <th>Service Tag</th>
+      <th>Expression Service Code</th>
+      <th>Location</th>
+      <th>Power Connect Type</th>
+      <th>Warranty</th>
+      <th>Type</th>
+      <th>Purchase Date</th>
+      <th>Expiration Date</th>
+      <th>Days Left</th>
+      <th>Ownership</th>
+      <th>Order Number</th>
+      <th>OS Platform</th>
+    </tr>
+    </thead>
+  </table>
+  <div class="paginating-container pagination-solid">
+    <ul class="pagination">
+    </ul>
+  </div>
+</div>
+<div class="modal fade modal-xl" tabindex="-1" role="dialog" id="serverModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Edit Server</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body p-5 pt-0 row g-3 needs-validation" id="form-config" novalidate>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Basic
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="validationHostName" class="form-label my-1">Host name</label>
+                  <input type="text" class="form-control" id="validationHostName" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationCustomers" class="form-label my-1">Customer Location :</label>
+                  <input type="text" class="form-control" id="validationCustomers" disabled>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationHardwareAsService" class="form-label my-1">Hardware As Service</label>
+                  <select class="selectpicker show-menu-arrow w-100" id="validationHardwareAsService" name="validationHardwareAsService" required>
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                  </select>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationOsPlatform" class="form-label my-1">Os Platform</label>
+                  <input type="text" class="form-control" id="validationOsPlatform" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationServiceTag" class="form-label my-1">Service Tag</label>
+                  <input type="text" class="form-control" id="validationServiceTag" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationLocation" class="form-label my-1">Location</label>
+                  <input type="text" class="form-control" id="validationLocation" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationWarranty" class="form-label my-1">Warranty</label>
+                  <input type="text" class="form-control" id="validationWarranty" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationType" class="form-label my-1">Type</label>
+                  <input type="text" class="form-control" id="validationType" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationTypeRequired" class="form-label my-1">Type</label>
+                  <input type="text" class="form-control" id="validationTypeRequired" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationPurchaseDate" class="form-label my-1">Purchase Date</label>
+                  <input type="date" class="form-control" id="validationPurchaseDate" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col md-6">
+                  <label for="validationExpirationDate" class="form-label my-1">Expiration Date</label>
+                  <input type="date" class="form-control" id="validationExpirationDate" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div id="invalid-date" class="text-danger"></div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationDaysLeft" class="form-label my-1">Days Left</label>
+                  <input type="text" class="form-control" id="validationDaysLeft" value="" >
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationOwnership" class="form-label my-1">Ownership</label>
+                  <input type="text" class="form-control" id="validationOwnership" value="" >
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationOrderNumber" class="form-label my-1">Order Number</label>
+                  <input type="text" class="form-control" id="validationOrderNumber" value="" >
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationDescription" class="form-label my-1">Description</label>
+                  <textarea id="validationDescription" class="form-control" cols="12" rows="10"></textarea>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationIdrac" class="form-label my-1">Idrac</label>
+                  <input type="text" class="form-control" id="validationIdrac" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="button" id="update-btn">Update</button>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="reset" id="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_server.js"></script>
+{{ template "footer.html"}}

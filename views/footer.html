@@ -1,0 +1,22 @@
+<script>
+    $(document).ready(function() {
+        var currentPage = window.location.pathname.split("/").pop().split(".")[0];
+        var pageName = currentPage.endsWith('s') ? currentPage.slice(0, -1) : currentPage;
+        $("#create").text("Create " + pageName.replace(/-/g, " "));
+        $("#list").text("View " + pageName.replace(/-/g, " "));
+        $(".create").attr("href", "/network-management-solutions/create/" + currentPage);
+        $(".list").attr("href", "/network-management-solutions/list/" + currentPage);
+        $(".nav-link").each(function() {
+            var linkHref = $(this).attr("href");
+            if (linkHref && linkHref.includes(window.location.pathname)) {
+                $(this).addClass("active");
+                $(this).removeClass('link-dark');
+                $(this).addClass('link-light');
+            }
+        });
+    });
+</script>
+<script type="text/javascript" src="/static/js/toast_notifications.js"></script>
+<script type="text/javascript" src="/static/js/idle.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/css/popup.css">
+</html>

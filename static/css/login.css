@@ -1,0 +1,33 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, rgba(46,31,122,1) 0%, rgba(69,90,100,1) 30%, rgba(224,224,224,1) 100%);
+}
+.btn{
+    background-color: #2e1f7a;
+    border: none;
+}
+.btn:hover{
+    background-color: #455A64;
+}
+.password-container {
+    position: relative;
+}
+
+.password-field {
+    padding-right: 30px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 75%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

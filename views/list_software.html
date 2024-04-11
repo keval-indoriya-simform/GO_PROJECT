@@ -1,0 +1,121 @@
+{{ template "header.html"}}
+
+<div class="text-nowrap mt-5 col-9 mx-auto">
+    <input type="hidden" id="user_id" value={{.user_id}}/>
+    <button class="btn btn-dark" id="delete-btn">Delete</button>
+    <table id="softwareTable" class="display w-100">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Customer Name</th>
+            <th>Software Name</th>
+            <th>Version</th>
+            <th>License key</th>
+            <th>Other License Info</th>
+            <th>Install Date</th>
+            <th>Expiry Date</th>
+        </tr>
+        </thead>
+    </table>
+    <div class="paginating-container pagination-solid">
+        <ul class="pagination">
+        </ul>
+    </div>
+</div>
+<div class="modal fade modal-xl" tabindex="-1" role="dialog" id="modalUpdateSoftware">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Edit Customer Location</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="modal-body p-5 pt-0 row g-3 needs-validation" id="form-config" novalidate>
+                <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Enter Details
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body row">
+                                <div class="col-md-12">
+                                    <label for="customer_location_name" class="form-label my-1">Customer Location Name :</label>
+                                    <input type="text" class="form-control" id="customer_location_name" name="customer_location_name" value="" readonly>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="name" class="form-label my-1">Software Name</label>
+                                    <input type="text" class="form-control" id="name" value="" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="version" class="form-label my-1">Software Version</label>
+                                    <input type="text" class="form-control" id="version" value="" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="license_key" class="form-label my-1">License Key</label>
+                                    <input type="text" class="form-control" id="license_key" value="" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="other_license_info" class="form-label my-1">Other License Info</label>
+                                    <input type="text" class="form-control" id="other_license_info" value=""  required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="server_or_vm" class="form-label my-1">Server/VM</label>
+                                    <input type="text" class="form-control" id="server_or_vm" value="" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="form-group col-md-6">
+                                        <label for="install_date" class="form-label my-1">Install Date</label>
+                                        <input type="date" class="form-control" id="install_date" value="" >
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="expiry_date" class="form-label my-1">Expiry Date</label>
+                                        <input type="date" class="form-control" id="expiry_date" value="" >
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="notes">Important Notes</label>
+                                    <textarea class="form-control" id="notes" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 mt-3">
+                    <button class="btn btn-primary" type="button" id="update-btn">Update</button>
+                </div>
+                <div class="col-1 mt-3">
+                    <button class="btn btn-primary" type="reset" id="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_software.js"></script>
+{{ template "footer.html"}}

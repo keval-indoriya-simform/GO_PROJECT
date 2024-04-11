@@ -1,0 +1,86 @@
+{{ template "header.html"}}
+<div class="text-nowrap mt-5 col-9 mx-auto">
+  <input type="hidden" id="user_id" value={{.user_id}}/>
+  <button class="btn btn-dark" id="delete-btn">Delete</button>
+  <table id="customerLocationTable" class="display w-100 text-center">
+  </table>
+  <div class="paginating-container pagination-solid">
+    <ul class="pagination">
+    </ul>
+  </div>
+  <div class="container-fluid popup-content" id="popup-1">
+    <div class="container">
+      <div class="row justify-content-center" id="card">
+        <div class="col-xl-4 col-md-8 mb-3">
+          <div  class="card mb-2 shadow-sm h-100">
+            <div class="card-body h-100">
+              <div class="card-text d-flex flex-column justify-content-between h-100">
+                <div class="">
+                  <i class="fas fa-times close"></i>
+                  <table class="mt-4">
+                    <tr>
+                      <td class="align-top col-6">Name: </td>
+                      <td id="name" class="col-6"></td>
+                    </tr>
+                    <tr>
+                      <td class="align-top col-6">Is Active? </td>
+                      <td id="is_active" class="col-6"></td>
+                    </tr>
+                    <tr>
+                      <td class="align-top col-6">Cloud/OnSite </td>
+                      <td id="cloud_or_onsite" class="col-6"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="modal fade modal-xl" tabindex="-1" role="dialog" id="modalCustomerLocation">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Edit Customer Location</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body p-5 pt-0 row g-3 needs-validation" id="form-config" novalidate>
+        <div class="col-md-12">
+          <label for="validationCustom05" class="form-label my-1">Customer :</label>
+          <input class="form-control w-100" disabled id="validationCustom05" data-live-search="true">
+        </div>
+        <div class="col-md-12">
+          <label for="validationCustom02" class="form-label my-1">Name :</label>
+          <input type="text" class="form-control" id="validationCustom02">
+        </div>
+        <div class="col-md-12">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="flexSwitchCheckChecked">
+            <label class="form-check-label" for="flexSwitchCheckChecked" style="margin-top: 1.82vh;margin-left: 1vh;">Primary</label>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="validationTextarea" class="form-label my-1">Description :</label>
+          <div class="input-group has-validation">
+            <textarea class="form-control" id="validationTextarea" aria-describedby="inputGroupPrepend" rows="30" cols="150"></textarea>
+          </div>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="submit" id="update-btn">Update</button>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="reset" id="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_customer_locations.js"></script>
+{{ template "footer.html"}}

@@ -1,0 +1,174 @@
+{{ template "header.html" }}
+
+<body class="w-100">
+<div class="container-fluid">
+    <div class="row d-flex align-items-center justify-content-center my-5">
+        <div class="col-10">
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Basic
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body row">
+                                <div class="col-md-12">
+                                    <label for="validationCustom01" class="form-label my-1">First name</label>
+                                    <input type="text" class="form-control" id="validationCustom01" value="" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationCustom02" class="form-label my-1">Last name</label>
+                                    <input type="text" class="form-control" id="validationCustom02" value="" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationEmail" class="form-label my-1">Email</label>
+                                    <div class="input-group has-validation">
+                                        <input type="email" class="form-control" id="validationEmail" aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please enter a valid Email id.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationurl" class="form-label my-1">Image URL</label>
+                                    <div class="input-group has-validation">
+                                        <input type="url" class="form-control" id="validationurl" aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please enter a valid URL.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationCustomUsername" class="form-label my-1">Username</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please choose a username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationFile" class="form-label my-1">File</label>
+                                    <div class="input-group has-validation">
+                                        <input type="file" class="form-control" id="validationFile" aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please choose a username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="datepicker-1" class="form-label my-1">Date</label>
+                                    <div class="input-group has-validation">
+                                        <input type="text" class="form-control" id="datepicker-1" aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                                Address
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+                            <div class="accordion-body row">
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="type" type="radio" value="" id="home" required>
+                                        <label class="form-check-label my-1" for="home">
+                                            Home
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            You must select one before submitting.
+                                        </div>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="type" type="radio" value="" id="office" required>
+                                        <label class="form-check-label my-1" for="office">
+                                            Office
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            You must select one before submitting.
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="validationCustom04" class="form-label my-1">State</label>
+                                    <select class="form-select" id="validationCustom04" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="">has</option>
+                                        <option value="">option</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid state.
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <label for="validationCustom03" class="form-label my-1">City</label>
+                                    <input type="text" class="form-control" id="validationCustom03" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid city.
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationCustom05" class="form-label my-1">Zip</label>
+                                    <input type="text" class="form-control" id="validationCustom05" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid zip.
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="validationTextarea" class="form-label my-1">Address Lines :</label>
+                                    <div class="input-group has-validation">
+                                        <textarea class="form-control" id="validationTextarea" aria-describedby="inputGroupPrepend" rows="10" cols="150" required></textarea>
+                                        <div class="invalid-feedback">
+                                            Please enter something.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label my-1" for="invalidCheck">
+                            Agree to terms and conditions
+                        </label>
+                        <div class="invalid-feedback">
+                            You must agree before submitting.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit" id="submit-btn" onclick="checkValidation()">Submit form</button>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="reset" id="reset-btn">Reset form</button>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="button" id="http_ping-btn" onclick="http_ping('localhost:8081/nms')">Ping</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/ping.js"></script>
+{{ template "footer.html" }}

@@ -1,0 +1,116 @@
+{{ template "header.html"}}
+<div class="text-nowrap mt-5 col-9 mx-auto">
+  <input type="hidden" id="user_id" value={{.user_id}}/>
+  <button class="btn btn-dark" id="delete-btn">Delete</button>
+  <table id="customerTable" class="display w-100">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Name</th>
+      <th>VOIP</th>
+      <th>Internet</th>
+      <th>Firewall</th>
+      <th>Backup Software</th>
+      <th>IsActive</th>
+      <th>Cloud / Onsite</th>
+      <th>Hardware As A Service</th>
+    </tr>
+    </thead>
+  </table>
+  <div class="paginating-container pagination-solid">
+    <ul class="pagination">
+    </ul>
+  </div>
+</div>
+<div class="modal fade modal-xl" tabindex="-1" role="dialog" id="customerModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Edit Customer</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body p-5 pt-0 row g-3 needs-validation" id="form-config" novalidate>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Basic
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="name" class="form-label my-1">Customer Name</label>
+                  <input type="text" class="form-control" id="name" value="" required>
+                  <div class="invalid-feedback">
+                    Required !
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="cloud_or_onsite" class="form-label my-1">Cloud / Onsite :</label>
+                  <select class="selectpicker show-menu-arrow w-100" id="cloud_or_onsite" name="cloud_or_onsite" data-live-search="true" required>
+                    <option disabled selected value="">Select Cloud Or Onsite</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one Type.
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="backup_software" class="form-label my-1">Backup Software</label>
+                  <input type="text" class="form-control" id="backup_software">
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="active_check">
+                    <label class="form-check-label" for="active_check" style="margin-top: 1.82vh;margin-left: 1vh;">Active</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="voip_check">
+                    <label class="form-check-label" for="voip_check" style="margin-top: 1.82vh;margin-left: 1vh;">VOIP</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="internet_check">
+                    <label class="form-check-label" for="internet_check" style="margin-top: 1.82vh;margin-left: 1vh;">Internet</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="firewall_check">
+                    <label class="form-check-label" for="firewall_check" style="margin-top: 1.82vh;margin-left: 1vh;">Firewall</label>
+                  </div>
+                </div>
+                <div class="col-md-2" style="white-space: nowrap">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" style="width:55px;height:30px;margin-bottom: 5px;margin-top: 15px;" id="hardware_as_a_service_check">
+                    <label class="form-check-label" for="hardware_as_a_service_check" style="margin-top: 1.82vh;margin-left: 1vh; ">Hardware As a Service</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="description" class="form-label my-1">Description</label>
+                  <textarea class="form-control" id="description" aria-describedby="inputGroupPrepend" rows="10" cols="150"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="button" id="update-btn">Update</button>
+        </div>
+        <div class="col-1 mt-3">
+          <button class="btn btn-primary" type="reset" id="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_scripts.js"></script>
+<script type="text/javascript" src="/static/js/list_customer.js"></script>
+{{ template "footer.html"}}

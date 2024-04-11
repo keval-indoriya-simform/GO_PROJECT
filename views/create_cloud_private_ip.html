@@ -1,0 +1,64 @@
+{{ template "header.html" }}
+<div id="toasts"></div>
+<div class="col-10 main-content-height">
+  <div class="row d-flex align-items-center justify-content-center my-5 mx-0">
+    <div class="col-10">
+      <form class="row g-3 needs-validation" novalidate>
+        <input type="hidden" id="user_id" value={{.user_id}}/>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Enter Details
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="ipv4_assignment" class="form-label my-1">IPV4 Assignment<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="text" class="form-control" id="ipv4_assignment" value="" oninput="OnHandleChange(event.target.id,event.target.value)" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="ipv6_assignment" class="form-label my-1">IPV6 Assignment</label>
+                  <input type="text" class="form-control" id="ipv6_assignment" value="" oninput="OnHandleChange(event.target.id,event.target.value)">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="description" class="form-label my-1">Description</label>
+                  <input type="text" class="form-control" id="description" value="" oninput="OnHandleChange(event.target.id,event.target.value)">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="assign_to" class="form-label my-1">Assigned To<span class="text-danger fw-bold ms-1">*</span></label>
+                  <select class="selectpicker show-menu-arrow w-100" id="assign_to" name="assign_to" data-live-search="true" required>
+                    <option disabled selected value="">Select User</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one User.
+                  </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary submit me-2" type="button" id="submit-btn" onclick="createCloudPrivateIpModel()">Submit</button>
+          <button class="btn btn-primary reset" type="reset" id="reset-btn">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/cloud_private_ip_validation.js"></script>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/ping.js"></script>
+{{ template "footer.html" }}

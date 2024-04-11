@@ -1,0 +1,2479 @@
+basePath: /api/v1
+definitions:
+  models.Account:
+    properties:
+      account_number:
+        type: string
+      account_number_aliases:
+        type: string
+      link_for_domain_admin:
+        type: string
+      name:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.CloudPrivateIp:
+    properties:
+      assigned_to_id:
+        type: integer
+      cloud_private_ip_id:
+        type: integer
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      description:
+        type: string
+      ipv4_assignment:
+        type: string
+      ipv6_assignment:
+        type: string
+    type: object
+  models.CloudPublicIp:
+    properties:
+      cloud_public_ip_id:
+        type: integer
+      cloud_vm_name:
+        type: string
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      ip_address:
+        type: string
+      post_forward_ip:
+        type: string
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+    type: object
+  models.CreateAccount:
+    properties:
+      account_number:
+        type: string
+      account_number_aliases:
+        type: string
+      link_for_domain_admin:
+        type: string
+      name:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.CreateCloudPrivateIp:
+    properties:
+      created_by_user_id:
+        type: integer
+      description:
+        type: string
+      ipv4_assignment:
+        type: string
+      ipv6_assignment:
+        type: string
+    type: object
+  models.CreateCloudPublicIp:
+    properties:
+      cloud_vm_name:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      ip_address:
+        type: string
+      post_forward_ip:
+        type: string
+    type: object
+  models.CreateCustomer:
+    properties:
+      backup_software:
+        type: string
+      cloud_or_onsite_id:
+        type: integer
+      created_by_user_id:
+        type: integer
+      description:
+        type: string
+      firewall:
+        type: boolean
+      hardware_as_a_service:
+        type: boolean
+      internet:
+        type: boolean
+      is_active:
+        type: boolean
+      name:
+        type: string
+      voip:
+        type: boolean
+    type: object
+  models.CreateCustomerLan:
+    properties:
+      backup_date:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      equipment_installed:
+        type: string
+      extra:
+        type: string
+      firewall_ipv4_lan_address:
+        type: string
+      firewall_ipv6_lan_address:
+        type: string
+      gateway_type:
+        type: string
+      lan_notes:
+        type: string
+      management_ip_address:
+        type: string
+      management_notes:
+        type: string
+      management_server:
+        type: string
+      network_on_site:
+        type: string
+      number_of_internet_connection:
+        type: integer
+      on_site_backup_server_or_nas_ip_address:
+        type: string
+      on_site_backup_server_or_nas_type:
+        type: string
+      print_or_scanner_ip_address:
+        type: string
+      print_or_scanner_password:
+        type: string
+      print_or_scanner_type:
+        type: string
+      print_or_scanner_user_name:
+        type: string
+      private_ip_assignment_id:
+        type: integer
+      scan_to_email_email_or_password:
+        type: string
+      scan_to_email_smtp_server_port:
+        type: string
+      scan_to_folder_location:
+        type: string
+      scan_to_folder_username_or_password:
+        type: string
+      version_of_last_backup:
+        type: string
+    type: object
+  models.CreateCustomerLocation:
+    properties:
+      created_by_user_id:
+        type: integer
+      customer_id:
+        type: integer
+      description:
+        type: string
+      is_primary:
+        type: boolean
+      name:
+        type: string
+    type: object
+  models.CreateEmailAccount:
+    properties:
+      account_number:
+        type: string
+      email_account_type_id:
+        type: integer
+      email_hosting:
+        type: string
+      link_for_email_admin:
+        type: string
+      password:
+        type: string
+      pin:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.CreateEmailDomain:
+    properties:
+      a_record_1:
+        type: string
+      a_record_2:
+        type: string
+      a_record_3:
+        type: string
+      a_record_4:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      domain:
+        type: string
+      domain_registrar:
+        type: string
+      mx_record_1:
+        type: string
+      mx_record_2:
+        type: string
+      notes:
+        type: string
+      password:
+        type: string
+      phone_setting_note:
+        type: string
+      pin:
+        type: string
+      web_mail_exchange:
+        type: string
+      web_mail_pop_imap:
+        type: string
+      website_ip_or_alias:
+        type: string
+    type: object
+  models.CreateInstalledFirewall:
+    properties:
+      backup_date:
+        type: string
+      brand:
+        type: string
+      created_by_user_id:
+        type: integer
+      current_version:
+        type: string
+      customer_lan_on_site:
+        type: string
+      customer_location_id:
+        type: integer
+      equipment:
+        type: string
+      extra:
+        type: string
+      firewall_ipv4_lan_address:
+        type: string
+      firewall_ipv6_lan_address:
+        type: string
+      installed_date:
+        type: string
+      version_backup:
+        type: string
+    type: object
+  models.CreateInternetProvider:
+    properties:
+      account_or_pin:
+        type: string
+      name:
+        type: string
+      other:
+        type: string
+      primary_dns:
+        type: string
+      secondary_dns:
+        type: string
+      speed:
+        type: string
+    type: object
+  models.CreateNote:
+    properties:
+      assigned_to_id:
+        type: integer
+      attachment:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      note:
+        type: string
+      subject:
+        type: string
+    type: object
+  models.CreateServer:
+    properties:
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      days_left:
+        type: string
+      description:
+        type: string
+      expiration_date:
+        type: string
+      hardware_as_a_service:
+        type: boolean
+      host_name:
+        type: string
+      idrac:
+        type: string
+      location:
+        type: string
+      order_number:
+        type: string
+      os_platform:
+        type: string
+      ownership:
+        type: string
+      power_connect_type:
+        type: string
+      purchase_date:
+        type: string
+      service_tag:
+        type: string
+      type:
+        type: string
+      warranty:
+        type: string
+    type: object
+  models.CreateSoftware:
+    properties:
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      expiry_date:
+        type: string
+      install_date:
+        type: string
+      license_key:
+        type: string
+      name:
+        type: string
+      notes:
+        type: string
+      other_license_info:
+        type: string
+      server_or_vm:
+        type: string
+      version:
+        type: string
+    type: object
+  models.CreateSwitches:
+    properties:
+      switch_brand_or_model:
+        type: string
+      switch_credentials:
+        type: string
+      switch_image_links:
+        type: string
+      switch_install_date:
+        type: string
+      switch_ip_address:
+        type: string
+      switch_manage:
+        type: string
+      switch_notes:
+        type: string
+    type: object
+  models.CreateUser:
+    properties:
+      contact:
+        type: integer
+      department:
+        type: string
+      email:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  models.CreateWanConfig:
+    properties:
+      comment:
+        type: string
+      firewall:
+        type: string
+      gateway:
+        type: string
+      ip_range:
+        type: string
+      ip_version:
+        type: string
+      sub_net_mask:
+        type: string
+    type: object
+  models.CreateWireless:
+    properties:
+      wireless_admin_password:
+        type: string
+      wireless_admin_username:
+        type: string
+      wireless_connection_type:
+        type: string
+      wireless_ip_address:
+        type: string
+      wireless_notes:
+        type: string
+      wireless_password:
+        type: string
+      wireless_ssid:
+        type: string
+      wireless_unit:
+        type: string
+    type: object
+  models.Customer:
+    properties:
+      backup_software:
+        type: string
+      cloud_or_onsite_id:
+        type: integer
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      description:
+        type: string
+      firewall:
+        type: boolean
+      hardware_as_a_service:
+        type: boolean
+      internet:
+        type: boolean
+      is_active:
+        type: boolean
+      name:
+        type: string
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+      voip:
+        type: boolean
+    type: object
+  models.CustomerLan:
+    properties:
+      backup_date:
+        type: string
+      cloud_private_ip:
+        $ref: '#/definitions/models.CloudPrivateIp'
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_lan_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      equipment_installed:
+        type: string
+      extra:
+        type: string
+      firewall_ipv4_lan_address:
+        type: string
+      firewall_ipv6_lan_address:
+        type: string
+      gateway_type:
+        type: string
+      internet_provider1:
+        $ref: '#/definitions/models.InternetProvider'
+      internet_provider1_id:
+        type: integer
+      internet_provider2:
+        $ref: '#/definitions/models.InternetProvider'
+      internet_provider2_id:
+        type: integer
+      lan_notes:
+        type: string
+      management_ip_address:
+        type: string
+      management_notes:
+        type: string
+      management_server:
+        type: string
+      network_on_site:
+        type: string
+      number_of_internet_connection:
+        type: integer
+      on_site_backup_server_or_nas_ip_address:
+        type: string
+      on_site_backup_server_or_nas_type:
+        type: string
+      print_or_scanner_ip_address:
+        type: string
+      print_or_scanner_password:
+        type: string
+      print_or_scanner_type:
+        type: string
+      print_or_scanner_user_name:
+        type: string
+      private_ip_assignment_id:
+        type: integer
+      scan_to_email_email_or_password:
+        type: string
+      scan_to_email_smtp_server_port:
+        type: string
+      scan_to_folder_location:
+        type: string
+      scan_to_folder_username_or_password:
+        type: string
+      switch_brand_or_model:
+        type: string
+      switch_credentials:
+        type: string
+      switch_image_links:
+        type: string
+      switch_install_date:
+        type: string
+      switch_ip_address:
+        type: string
+      switch_manage:
+        type: string
+      switch_notes:
+        type: string
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+      version_of_last_backup:
+        type: string
+      wireless_admin_password:
+        type: string
+      wireless_admin_username:
+        type: string
+      wireless_connection_type:
+        type: string
+      wireless_ip_address:
+        type: string
+      wireless_notes:
+        type: string
+      wireless_password:
+        type: string
+      wireless_ssid:
+        type: string
+      wireless_unit:
+        type: string
+    type: object
+  models.CustomerLocation:
+    properties:
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      description:
+        type: string
+      is_primary:
+        type: boolean
+      name:
+        type: string
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+    type: object
+  models.EmailAccount:
+    properties:
+      account_number:
+        type: string
+      email_account_type:
+        $ref: '#/definitions/models.EmailAccountType'
+      email_account_type_id:
+        type: integer
+      email_hosting:
+        type: string
+      link_for_email_admin:
+        type: string
+      password:
+        type: string
+      pin:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.EmailAccountType:
+    properties:
+      email_account_type:
+        type: string
+      email_account_type_id:
+        type: integer
+    type: object
+  models.EmailDomain:
+    properties:
+      a_record_1:
+        type: string
+      a_record_2:
+        type: string
+      a_record_3:
+        type: string
+      a_record_4:
+        type: string
+      account:
+        $ref: '#/definitions/models.Account'
+      account_id:
+        type: integer
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      domain:
+        type: string
+      domain_registrar:
+        type: string
+      email_account:
+        $ref: '#/definitions/models.EmailAccount'
+      email_account_id:
+        type: integer
+      email_domain_id:
+        type: integer
+      mx_record_1:
+        type: string
+      mx_record_2:
+        type: string
+      notes:
+        type: string
+      password:
+        type: string
+      phone_setting_note:
+        type: string
+      pin:
+        type: string
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+      web_mail_exchange:
+        type: string
+      web_mail_pop_imap:
+        type: string
+      website_ip_or_alias:
+        type: string
+    type: object
+  models.InstalledFirewall:
+    properties:
+      backup_date:
+        type: string
+      brand:
+        type: string
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      current_version:
+        type: string
+      customer_lan_on_site:
+        type: string
+      customer_location_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      equipment:
+        type: string
+      extra:
+        type: string
+      firewall_ipv4_lan_address:
+        type: string
+      firewall_ipv6_lan_address:
+        type: string
+      installed_date:
+        type: string
+      installed_firewall_id:
+        type: integer
+      internet_provider1:
+        $ref: '#/definitions/models.InternetProvider'
+      internet_provider1_id:
+        type: integer
+      internet_provider2:
+        $ref: '#/definitions/models.InternetProvider'
+      internet_provider2_id:
+        type: integer
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+      version_backup:
+        type: string
+    type: object
+  models.InternetProvider:
+    properties:
+      account_or_pin:
+        type: string
+      name:
+        type: string
+      other:
+        type: string
+      primary_dns:
+        type: string
+      secondary_dns:
+        type: string
+      speed:
+        type: string
+      wan_config_ipv4:
+        $ref: '#/definitions/models.WanConfig'
+      wan_config_ipv4_id:
+        type: integer
+      wan_config_ipv6:
+        $ref: '#/definitions/models.WanConfig'
+      wan_config_ipv6_id:
+        type: integer
+    type: object
+  models.Login:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  models.Note:
+    properties:
+      assigned_to_id:
+        type: integer
+      attachment:
+        type: string
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      note:
+        type: string
+      note_id:
+        type: integer
+      subject:
+        type: string
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+    type: object
+  models.Server:
+    properties:
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      days_left:
+        type: string
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      description:
+        type: string
+      expiration_date:
+        type: string
+      expression_service_code:
+        type: integer
+      hardware_as_a_service:
+        type: boolean
+      host_name:
+        type: string
+      idrac:
+        type: string
+      location:
+        type: string
+      order_number:
+        type: string
+      os_platform:
+        type: string
+      ownership:
+        type: string
+      power_connect_type:
+        type: string
+      purchase_date:
+        type: string
+      server_id:
+        type: integer
+      service_tag:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+      warranty:
+        type: string
+    type: object
+  models.Software:
+    properties:
+      created_at:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      deleted_at:
+        type: string
+      deleted_by_user_id:
+        type: integer
+      expiry_date:
+        type: string
+      install_date:
+        type: string
+      license_key:
+        type: string
+      name:
+        type: string
+      notes:
+        type: string
+      other_license_info:
+        type: string
+      server_or_vm:
+        type: string
+      software_id:
+        type: integer
+      updated_at:
+        type: string
+      updated_by_user_id:
+        type: integer
+      version:
+        type: string
+    type: object
+  models.UpdateAccount:
+    properties:
+      account_number:
+        type: string
+      account_number_aliases:
+        type: string
+      link_for_domain_admin:
+        type: string
+      name:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.UpdateCloudPrivateIp:
+    properties:
+      assigned_to_id:
+        type: integer
+      description:
+        type: string
+      ipv4_assignment:
+        type: string
+      ipv6_assignment:
+        type: string
+    type: object
+  models.UpdateCloudPublicIp:
+    properties:
+      cloud_vm_name:
+        type: string
+      customer_location_id:
+        type: integer
+      ip_address:
+        type: string
+      post_forward_ip:
+        type: string
+      updated_by_user_id:
+        type: integer
+    type: object
+  models.UpdateCustomer:
+    properties:
+      backup_software:
+        type: string
+      cloud_or_onsite_id:
+        type: integer
+      description:
+        type: string
+      firewall:
+        type: boolean
+      hardware_as_a_service:
+        type: boolean
+      internet:
+        type: boolean
+      is_active:
+        type: boolean
+      name:
+        type: string
+      updated_by_user_id:
+        type: integer
+      voip:
+        type: boolean
+    type: object
+  models.UpdateCustomerLan:
+    properties:
+      backup_date:
+        type: string
+      created_by_user_id:
+        type: integer
+      customer_location_id:
+        type: integer
+      equipment_installed:
+        type: string
+      extra:
+        type: string
+      firewall_ipv4_lan_address:
+        type: string
+      firewall_ipv6_lan_address:
+        type: string
+      gateway_type:
+        type: string
+      lan_notes:
+        type: string
+      management_ip_address:
+        type: string
+      management_notes:
+        type: string
+      management_server:
+        type: string
+      network_on_site:
+        type: string
+      number_of_internet_connection:
+        type: integer
+      on_site_backup_server_or_nas_ip_address:
+        type: string
+      on_site_backup_server_or_nas_type:
+        type: string
+      print_or_scanner_ip_address:
+        type: string
+      print_or_scanner_password:
+        type: string
+      print_or_scanner_type:
+        type: string
+      print_or_scanner_user_name:
+        type: string
+      private_ip_assignment_id:
+        type: integer
+      scan_to_email_email_or_password:
+        type: string
+      scan_to_email_smtp_server_port:
+        type: string
+      scan_to_folder_location:
+        type: string
+      scan_to_folder_username_or_password:
+        type: string
+      version_of_last_backup:
+        type: string
+    type: object
+  models.UpdateCustomerLocation:
+    properties:
+      customer_id:
+        type: integer
+      description:
+        type: string
+      is_primary:
+        type: boolean
+      name:
+        type: string
+      updated_by_user_id:
+        type: integer
+    type: object
+  models.UpdateEmailAccount:
+    properties:
+      account_number:
+        type: string
+      email_account_type_id:
+        type: integer
+      email_hosting:
+        type: string
+      link_for_email_admin:
+        type: string
+      password:
+        type: string
+      pin:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.UpdateEmailDomain:
+    properties:
+      a_record_1:
+        type: string
+      a_record_2:
+        type: string
+      a_record_3:
+        type: string
+      a_record_4:
+        type: string
+      customer_location_id:
+        type: integer
+      domain:
+        type: string
+      domain_registrar:
+        type: string
+      mx_record_1:
+        type: string
+      mx_record_2:
+        type: string
+      notes:
+        type: string
+      password:
+        type: string
+      phone_setting_note:
+        type: string
+      pin:
+        type: string
+      updated_by_user_id:
+        type: integer
+      web_mail_exchange:
+        type: string
+      web_mail_pop_imap:
+        type: string
+      website_ip_or_alias:
+        type: string
+    type: object
+  models.UpdateInstalledFirewall:
+    properties:
+      backup_date:
+        type: string
+      brand:
+        type: string
+      current_version:
+        type: string
+      customer_lan_on_site:
+        type: string
+      customer_location_id:
+        type: integer
+      equipment:
+        type: string
+      extra:
+        type: string
+      firewall_ipv4_lan_address:
+        type: string
+      firewall_ipv6_lan_address:
+        type: string
+      installed_date:
+        type: string
+      updated_by_user_id:
+        type: integer
+      version_backup:
+        type: string
+    type: object
+  models.UpdateInternetProvider:
+    properties:
+      account_or_pin:
+        type: string
+      name:
+        type: string
+      other:
+        type: string
+      primary_dns:
+        type: string
+      secondary_dns:
+        type: string
+      speed:
+        type: string
+    type: object
+  models.UpdateNote:
+    properties:
+      assigned_to_id:
+        type: integer
+      attachment:
+        type: string
+      customer_location_id:
+        type: integer
+      note:
+        type: string
+      subject:
+        type: string
+      updated_by_user_id:
+        type: integer
+    type: object
+  models.UpdateServer:
+    properties:
+      customer_location_id:
+        type: integer
+      days_left:
+        type: string
+      description:
+        type: string
+      expiration_date:
+        type: string
+      expression_service_code:
+        type: integer
+      hardware_as_a_service:
+        type: boolean
+      host_name:
+        type: string
+      idrac:
+        type: string
+      location:
+        type: string
+      order_number:
+        type: string
+      os_platform:
+        type: string
+      ownership:
+        type: string
+      power_connect_type:
+        type: string
+      purchase_date:
+        type: string
+      service_tag:
+        type: string
+      type:
+        type: string
+      updated_by_user_id:
+        type: integer
+      warranty:
+        type: string
+    type: object
+  models.UpdateSoftware:
+    properties:
+      customer_location_id:
+        type: integer
+      expiry_date:
+        type: string
+      install_date:
+        type: string
+      license_key:
+        type: string
+      name:
+        type: string
+      notes:
+        type: string
+      other_license_info:
+        type: string
+      server_or_vm:
+        type: string
+      updated_by_user_id:
+        type: integer
+      version:
+        type: string
+    type: object
+  models.UpdateSwitches:
+    properties:
+      switch_brand_or_model:
+        type: string
+      switch_credentials:
+        type: string
+      switch_image_links:
+        type: string
+      switch_install_date:
+        type: string
+      switch_ip_address:
+        type: string
+      switch_manage:
+        type: string
+      switch_notes:
+        type: string
+    type: object
+  models.UpdateWanConfig:
+    properties:
+      comment:
+        type: string
+      firewall:
+        type: string
+      gateway:
+        type: string
+      ip_range:
+        type: string
+      ip_version:
+        type: string
+      sub_net_mask:
+        type: string
+    type: object
+  models.UpdateWireless:
+    properties:
+      wireless_admin_password:
+        type: string
+      wireless_admin_username:
+        type: string
+      wireless_connection_type:
+        type: string
+      wireless_ip_address:
+        type: string
+      wireless_notes:
+        type: string
+      wireless_password:
+        type: string
+      wireless_ssid:
+        type: string
+      wireless_unit:
+        type: string
+    type: object
+  models.User:
+    properties:
+      contact:
+        type: integer
+      created_at:
+        type: string
+      department:
+        type: string
+      email:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      password:
+        type: string
+      updated_at:
+        type: string
+      user_id:
+        type: integer
+      username:
+        type: string
+    type: object
+  models.WanConfig:
+    properties:
+      comment:
+        type: string
+      firewall:
+        type: string
+      gateway:
+        type: string
+      ip_range:
+        type: string
+      ip_version:
+        type: string
+      sub_net_mask:
+        type: string
+      wan_config_id:
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server .
+  termsOfService: http://swagger.io/terms/
+  title: Network Management Solutions API
+  version: "1.0"
+paths:
+  /cloud-private-ips:
+    delete:
+      description: Delete a Cloud Private IP
+      parameters:
+      - description: Cloud Private IP ID
+        in: query
+        name: cloud_private_ip_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPrivateIp'
+      summary: Delete Cloud Private IP
+      tags:
+      - Cloud Private IP
+    get:
+      description: Retrieve  Cloud Private IP
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: string
+      - description: Cloud Private IP ID
+        in: query
+        name: cloud_private_ip_id
+        type: string
+      - description: Select Column
+        in: query
+        name: select_column
+        type: string
+      - description: Append Select
+        in: query
+        name: append_select
+        type: string
+      - description: Set Limit
+        in: query
+        name: set_limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPrivateIp'
+      summary: Retrieve  Cloud Private IP
+      tags:
+      - Cloud Private IP
+    patch:
+      consumes:
+      - application/json
+      description: Update a Cloud Private IP
+      parameters:
+      - description: CloudPrivateIp Data
+        in: body
+        name: CloudPrivateIP
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCloudPrivateIp'
+      - description: Cloud Private IP ID
+        in: query
+        name: cloud_private_ip_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPrivateIp'
+      summary: Update Cloud Private IP
+      tags:
+      - Cloud Private IP
+    post:
+      consumes:
+      - application/json
+      description: Add a Cloud Private IP
+      parameters:
+      - description: CloudPrivateIp Data
+        in: body
+        name: CloudPrivateIP
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateCloudPrivateIp'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPrivateIp'
+      summary: Create Cloud Private IP
+      tags:
+      - Cloud Private IP
+  /cloud-public-ips:
+    delete:
+      description: Delete a Cloud Public IP
+      parameters:
+      - description: Cloud Public IP ID
+        in: query
+        name: cloud_public_ip_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPublicIp'
+      summary: Delete Cloud Public IP
+      tags:
+      - Cloud Public IP
+    get:
+      description: Retrieve a Cloud Public IP
+      parameters:
+      - description: Cloud Public IP ID
+        in: query
+        name: cloud_public_ip_id
+        type: string
+      - description: Ip Address
+        in: query
+        name: ip_address
+        type: string
+      - description: Location
+        in: query
+        name: location
+        type: string
+      - description: Cloud VM Name
+        in: query
+        name: cloud_vm_name
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      - description: Post Forward Ip
+        in: query
+        name: post_forward_ip
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPublicIp'
+      summary: Retrieve Cloud Public IP
+      tags:
+      - Cloud Public IP
+    patch:
+      consumes:
+      - application/json
+      description: Update a Cloud Public IP
+      parameters:
+      - description: CloudPublicIp Data
+        in: body
+        name: CloudPublicIp
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCloudPublicIp'
+      - description: Cloud Public IP ID
+        in: query
+        name: cloud_public_ip_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPublicIp'
+      summary: Update Cloud Public IP
+      tags:
+      - Cloud Public IP
+    post:
+      consumes:
+      - application/json
+      description: Add a Cloud Public IP
+      parameters:
+      - description: CloudPublicIp Data
+        in: body
+        name: CloudPublicIp
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateCloudPublicIp'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CloudPublicIp'
+      summary: Create Cloud Public IP
+      tags:
+      - Cloud Public IP
+  /customer-lans:
+    delete:
+      description: Delete Customer Lan
+      parameters:
+      - description: Cloud Public IP ID
+        in: query
+        name: customer_lan_id
+        type: string
+      - description: USER ID
+        in: header
+        name: User_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLan'
+      summary: Delete Customer Lan
+      tags:
+      - Customer Lan
+    get:
+      description: Retrieve Customer Lan
+      parameters:
+      - description: Customer Location
+        in: query
+        name: customer_location
+        type: string
+      - description: Customer Lan Network On Site
+        in: query
+        name: customer_lan_network_on_site
+        type: string
+      - description: Assign To
+        in: query
+        name: assign_to
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLan'
+      summary: Retrieve Customer Lan
+      tags:
+      - Customer Lan
+    patch:
+      consumes:
+      - application/json
+      description: Update Customer Lan
+      parameters:
+      - description: CustomerLan Data
+        in: body
+        name: CustomerLan
+        required: true
+        schema:
+          allOf:
+          - $ref: '#/definitions/models.UpdateCustomerLan'
+          - properties:
+              internet_provider1:
+                allOf:
+                - $ref: '#/definitions/models.UpdateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                  type: object
+              internet_provider2:
+                allOf:
+                - $ref: '#/definitions/models.UpdateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                  type: object
+              switches:
+                $ref: '#/definitions/models.UpdateSwitches'
+              wireless:
+                $ref: '#/definitions/models.UpdateWireless'
+            type: object
+      - description: Customer Lan ID
+        in: query
+        name: customer_lan_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLan'
+      summary: Update Customer Lan
+      tags:
+      - Customer Lan
+    post:
+      consumes:
+      - application/json
+      description: Add a Customer Lan
+      parameters:
+      - description: CustomerLan Data
+        in: body
+        name: CustomerLan
+        required: true
+        schema:
+          allOf:
+          - $ref: '#/definitions/models.CreateCustomerLan'
+          - properties:
+              internet_provider1:
+                allOf:
+                - $ref: '#/definitions/models.CreateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                  type: object
+              internet_provider2:
+                allOf:
+                - $ref: '#/definitions/models.CreateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                  type: object
+              switches:
+                $ref: '#/definitions/models.CreateSwitches'
+              wireless:
+                $ref: '#/definitions/models.CreateWireless'
+            type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLan'
+      summary: Create Customer Lan
+      tags:
+      - Customer Lan
+  /customer-locations:
+    delete:
+      description: Delete Customer Location
+      parameters:
+      - description: Customer Location ID
+        in: query
+        name: customer_location_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLocation'
+      summary: Delete Customer Location
+      tags:
+      - Customer Location
+    get:
+      description: Retrieve Customer Location
+      parameters:
+      - description: Customer Location ID
+        in: query
+        name: customer_location_id
+        type: string
+      - description: Customer Location Name
+        in: query
+        name: customer_location_name
+        type: string
+      - description: Customer Name
+        in: query
+        name: customer_name
+        type: string
+      - description: Assign To
+        in: query
+        name: assigned_to
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      - description: Select Column
+        in: query
+        name: select_column
+        type: string
+      - description: Set Limit
+        in: query
+        name: set_limit
+        type: string
+      - description: Append Select
+        in: query
+        name: append_select
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLocation'
+      summary: Retrieve Customer Location
+      tags:
+      - Customer Location
+    patch:
+      consumes:
+      - application/json
+      description: Update Customer Location
+      parameters:
+      - description: CustomerLan Data
+        in: body
+        name: CustomerLocation
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCustomerLocation'
+      - description: Customer Location ID
+        in: query
+        name: customer_location_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLocation'
+      summary: Update Customer Location
+      tags:
+      - Customer Location
+    post:
+      consumes:
+      - application/json
+      description: Add    Customer Location
+      parameters:
+      - description: CustomerLocation Data
+        in: body
+        name: CustomerLocation
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateCustomerLocation'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerLocation'
+      summary: Create Customer Location
+      tags:
+      - Customer Location
+  /customers:
+    delete:
+      description: Delete Customer
+      parameters:
+      - description: Customer ID
+        in: query
+        name: customer_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+      summary: Delete Customer
+      tags:
+      - Customer
+    get:
+      description: Retrieve Customer
+      parameters:
+      - description: Customer Name
+        in: query
+        name: customer_name
+        type: string
+      - description: Customer ID
+        in: query
+        name: customer_id
+        type: string
+      - description: Created By
+        in: query
+        name: created_by
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      - description: Select Column
+        in: query
+        name: select_column
+        type: string
+      - description: Set Limit
+        in: query
+        name: set_limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+      summary: Retrieve Customer
+      tags:
+      - Customer
+    patch:
+      consumes:
+      - application/json
+      description: Update Customer
+      parameters:
+      - description: Customer Data
+        in: body
+        name: Customer
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCustomer'
+      - description: Customer ID
+        in: query
+        name: customer_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+      summary: Update Customer
+      tags:
+      - Customer
+    post:
+      consumes:
+      - application/json
+      description: Add    Customer
+      parameters:
+      - description: Customer Data
+        in: body
+        name: Customer
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateCustomer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+      summary: Create Customer
+      tags:
+      - Customer
+  /email-domains:
+    delete:
+      description: Delete Email Domain
+      parameters:
+      - description: Email Domain Id
+        in: query
+        name: email_domain_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.EmailDomain'
+      summary: Delete Email Domain
+      tags:
+      - Email Domain
+    get:
+      description: Retrieve Email Domain
+      parameters:
+      - description: Domain
+        in: query
+        name: domain
+        type: string
+      - description: Email Domain Id
+        in: query
+        name: email_domain_id
+        type: string
+      - description: Customer Location
+        in: query
+        name: customer_location
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.EmailDomain'
+      summary: Retrieve   Email Domain
+      tags:
+      - Email Domain
+    patch:
+      consumes:
+      - application/json
+      description: Update Email Domain
+      parameters:
+      - description: Email Domain
+        in: body
+        name: EmailDomain
+        required: true
+        schema:
+          allOf:
+          - $ref: '#/definitions/models.UpdateEmailDomain'
+          - properties:
+              account:
+                $ref: '#/definitions/models.UpdateAccount'
+              email_account:
+                $ref: '#/definitions/models.UpdateEmailAccount'
+            type: object
+      - description: Email Domain ID
+        in: query
+        name: email_domain_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+      summary: Update Email Domain
+      tags:
+      - Email Domain
+    post:
+      consumes:
+      - application/json
+      description: Add    Email Domain
+      parameters:
+      - description: EmailDomain Data
+        in: body
+        name: EmailDomain
+        required: true
+        schema:
+          allOf:
+          - $ref: '#/definitions/models.CreateEmailDomain'
+          - properties:
+              account:
+                $ref: '#/definitions/models.CreateAccount'
+              email_account:
+                $ref: '#/definitions/models.CreateEmailAccount'
+            type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.EmailDomain'
+      summary: Create Email Domain
+      tags:
+      - Email Domain
+  /installed-firewalls:
+    delete:
+      description: Delete Installed Firewall
+      parameters:
+      - description: Installed Firewall ID
+        in: query
+        name: installed_firewall_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.InstalledFirewall'
+      summary: Delete Installed Firewall
+      tags:
+      - Installed Firewall
+    get:
+      description: Retrieve  Installed Firewall
+      parameters:
+      - description: Domain
+        in: query
+        name: version_backup
+        type: string
+      - description: Email Domain Id
+        in: query
+        name: firewall_wan1_ipv4
+        type: string
+      - description: Customer Location
+        in: query
+        name: backup_date
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      - description: Select Column
+        in: query
+        name: select_column
+        type: string
+      - description: Append Select
+        in: query
+        name: append_select
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.InstalledFirewall'
+      summary: Retrieve  Installed Firewall
+      tags:
+      - Installed Firewall
+    patch:
+      consumes:
+      - application/json
+      description: Update Installed Firewall
+      parameters:
+      - description: Installed Firewall
+        in: body
+        name: InstalledFirewall
+        required: true
+        schema:
+          allOf:
+          - $ref: '#/definitions/models.UpdateInstalledFirewall'
+          - properties:
+              internet_provider1:
+                allOf:
+                - $ref: '#/definitions/models.UpdateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                  type: object
+              internet_provider2:
+                allOf:
+                - $ref: '#/definitions/models.UpdateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.UpdateWanConfig'
+                  type: object
+            type: object
+      - description: Installed Firewall ID
+        in: query
+        name: installed_firewall_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.InstalledFirewall'
+      summary: Update Installed Firewall
+      tags:
+      - Installed Firewall
+    post:
+      consumes:
+      - application/json
+      description: Add    Installed Firewall
+      parameters:
+      - description: InstalledFirewall Data
+        in: body
+        name: InstalledFirewall
+        required: true
+        schema:
+          allOf:
+          - $ref: '#/definitions/models.CreateInstalledFirewall'
+          - properties:
+              internet_provider1:
+                allOf:
+                - $ref: '#/definitions/models.CreateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                  type: object
+              internet_provider2:
+                allOf:
+                - $ref: '#/definitions/models.CreateInternetProvider'
+                - properties:
+                    wan_config_ipv4:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                    wan_config_ipv6:
+                      $ref: '#/definitions/models.CreateWanConfig'
+                  type: object
+            type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.InstalledFirewall'
+      summary: Create Installed Firewall
+      tags:
+      - Installed Firewall
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: User Login
+      parameters:
+      - description: Login Data
+        in: body
+        name: Login
+        required: true
+        schema:
+          $ref: '#/definitions/models.Login'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Login'
+      summary: User Login
+      tags:
+      - User Login
+  /notes:
+    delete:
+      description: Delete Notes
+      parameters:
+      - description: Note ID
+        in: query
+        name: note_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Note'
+      summary: Delete Notes
+      tags:
+      - Notes
+    get:
+      description: Retrieve  Notes
+      parameters:
+      - description: Note ID
+        in: query
+        name: note_id
+        type: string
+      - description: Subject
+        in: query
+        name: subject
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Note'
+      summary: Retrieve  Notes
+      tags:
+      - Notes
+    patch:
+      consumes:
+      - application/json
+      description: Update Notes
+      parameters:
+      - description: Note
+        in: body
+        name: Note
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateNote'
+      - description: Note ID
+        in: query
+        name: note_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Note'
+      summary: Update Notes
+      tags:
+      - Notes
+    post:
+      consumes:
+      - application/json
+      description: Add    Notes
+      parameters:
+      - description: Note Data
+        in: body
+        name: Note
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateNote'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Note'
+      summary: Create Notes
+      tags:
+      - Notes
+  /servers:
+    delete:
+      description: Delete Server
+      parameters:
+      - description: Server ID
+        in: query
+        name: server_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Server'
+      summary: Delete Server
+      tags:
+      - Servers
+    get:
+      description: Retrieve  Server
+      parameters:
+      - description: Server ID
+        in: query
+        name: server_id
+        type: string
+      - description: Service Tag
+        in: query
+        name: service_tag
+        type: string
+      - description: equipment type
+        in: query
+        name: equipment_type
+        type: string
+      - description: type
+        in: query
+        name: type
+        type: string
+      - description: expiration date
+        in: query
+        name: expiration_date
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      - description: Order By
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Note'
+      summary: Retrieve  Server
+      tags:
+      - Servers
+    patch:
+      consumes:
+      - application/json
+      description: Update Server
+      parameters:
+      - description: Server
+        in: body
+        name: Server
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateServer'
+      - description: Server ID
+        in: query
+        name: server_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Server'
+      summary: Update Server
+      tags:
+      - Servers
+    post:
+      consumes:
+      - application/json
+      description: Add    Server
+      parameters:
+      - description: Server Data
+        in: body
+        name: Server
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateServer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Server'
+      summary: Create Server
+      tags:
+      - Servers
+  /softwares:
+    delete:
+      description: Delete Software
+      parameters:
+      - description: Software ID
+        in: query
+        name: software_id
+        type: string
+      - description: USER ID
+        in: header
+        name: USER_ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Software'
+      summary: Delete Software
+      tags:
+      - Software
+    get:
+      description: Retrieve Software
+      parameters:
+      - description: Software ID
+        in: query
+        name: software_id
+        type: string
+      - description: Select Column
+        in: query
+        name: select_column
+        type: string
+      - description: Append Select
+        in: query
+        name: append_select
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Retrieve  Software
+      tags:
+      - Software
+    patch:
+      consumes:
+      - application/json
+      description: Update Software
+      parameters:
+      - description: Software
+        in: body
+        name: Software
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateSoftware'
+      - description: Software ID
+        in: query
+        name: software_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Software'
+      summary: Update Software
+      tags:
+      - Software
+    post:
+      consumes:
+      - application/json
+      description: Add    Software
+      parameters:
+      - description: Software Data
+        in: body
+        name: Software
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateSoftware'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Software'
+      summary: Create Software
+      tags:
+      - Software
+  /users:
+    get:
+      description: Retrieve Users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+      summary: Retrieve  Users
+      tags:
+      - User
+  /users/register:
+    post:
+      consumes:
+      - application/json
+      description: Add    User
+      parameters:
+      - description: User Data
+        in: body
+        name: User
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateUser'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.User'
+      summary: Create User
+      tags:
+      - User
+schemes:
+- http
+swagger: "2.0"

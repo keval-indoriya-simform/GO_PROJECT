@@ -1,0 +1,81 @@
+
+body,html{
+    height: 100%;
+}
+header{
+    height: 8%;
+    background-color: #74838A;
+}
+.accordion-button, .accordion-button:not(.collapsed) {
+    background-color: #455A64;
+    color: white;
+}
+.accordion-button::after {
+    display: none;
+}
+.accordion-button:focus{
+    box-shadow: none;
+    outline: none;
+}
+.form-control:focus, .form-select:focus{
+    outline: none;
+    box-shadow: none;
+}
+.accordion-button:focus{
+    box-shadow: none;
+    outline: none;
+}
+.form-control:focus, .form-select:focus{
+    outline: none;
+    box-shadow: none;
+}
+.placeholder-color::placeholder {
+    color: white;
+}
+.btn-logout, .btn-outline-light:hover{
+    background-color:  #E0E0E0;
+}
+.btn-logout:hover{
+    background-color: #F7C04A;
+}
+#pageName{
+    color: #F7C04A;
+}
+.sidebar {
+    background-color: #F7F6ED;
+    flex: 0 0 auto;
+    height: 92vh;
+}
+.nav-pills .nav-link.active{
+    background-color:  #455A64;
+}
+.btn.submit, .btn.reset{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color:  #74838A;
+}
+.btn.submit:hover{
+    background-color: #F7C04A;
+    color: black;
+}
+.btn.reset:hover{
+    background-color: #B32324;
+}
+.form-switch .form-check-input:focus {
+    box-shadow: 0 0 10px #F7F6ED; !important;
+}
+.form-switch .form-check-input:checked {
+    border: none;
+    box-shadow: 0 0 10px #F7F6ED; !important;
+    background-color: #74838A;
+}
+.form-height{
+    height: 92%;
+    overflow-x: auto;
+}
+
+.main-content-height{
+    height: 100%;
+    overflow-x: auto;
+}

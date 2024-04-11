@@ -1,0 +1,150 @@
+{{ template "header.html" }}
+<div class="col-10 main-content-height">
+  <div class="row d-flex align-items-center justify-content-center my-5 mx-0">
+    <div class="col-10">
+      <form class="row g-3 needs-validation" id="server-form" novalidate>
+        <input type="hidden" id="user_id" value={{.user_id}}/>
+        <div class="w-100 accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Basic
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body row">
+                <div class="col-md-12">
+                  <label for="validationHostName" class="form-label my-1">Host name<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="text" class="form-control" id="validationHostName" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="customer_location_name" class="form-label my-1">Customer Location Name<span class="text-danger fw-bold ms-1">*</span></label>
+                  <select class="selectpicker show-menu-arrow w-100" id="customer_location_name" name="customer_location_name" data-live-search="true" required>
+                    <option disabled selected value="">Select Customer</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one location.
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationHardwareAsService" class="form-label my-1">Hardware As Service</label>
+                  <select class="selectpicker show-menu-arrow w-100" id="validationHardwareAsService" name="validationHardwareAsService">
+                    <option selected value="false">No</option>
+                    <option value="true">Yes</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Need to select one location.
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationOsPlatform" class="form-label my-1">Os Platform</label>
+                  <input type="text" class="form-control" id="validationOsPlatform" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationServiceTag" class="form-label my-1">Service Tag</label>
+                  <input type="text" class="form-control" id="validationServiceTag" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationLocation" class="form-label my-1">Location</label>
+                  <input type="text" class="form-control" id="validationLocation" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationWarranty" class="form-label my-1">Warranty</label>
+                  <input type="text" class="form-control" id="validationWarranty" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationType" class="form-label my-1">Type</label>
+                  <input type="text" class="form-control" id="validationType" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationTypeRequired" class="form-label my-1">Type<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="text" class="form-control" id="validationTypeRequired" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationPurchaseDate" class="form-label my-1">Purchase Date<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="date" class="form-control" id="validationPurchaseDate" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col md-6">
+                  <label for="validationExpirationDate" class="form-label my-1">Expiration Date<span class="text-danger fw-bold ms-1">*</span></label>
+                  <input type="date" class="form-control" id="validationExpirationDate" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div id="invalid-date" class="text-danger"></div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationDaysLeft" class="form-label my-1">Days Left</label>
+                  <input type="text" class="form-control" id="validationDaysLeft" value="" >
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationOwnership" class="form-label my-1">Ownership</label>
+                  <input type="text" class="form-control" id="validationOwnership" value="" >
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationOrderNumber" class="form-label my-1">Order Number</label>
+                  <input type="text" class="form-control" id="validationOrderNumber" value="" >
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationDescription" class="form-label my-1">Description</label>
+                  <textarea id="validationDescription" class="form-control" cols="12" rows="10"></textarea>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationIdrac" class="form-label my-1">Idrac</label>
+                  <input type="text" class="form-control" id="validationIdrac" value="">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary submit me-2" type="submit" id="submit-btn">Submit</button>
+          <button class="btn btn-primary reset" type="button" id="reset-btn" onclick="cancelValidation()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/form_scripts.js"></script>
+<script type="text/javascript" src="/static/js/ping.js"></script>
+<script type="text/javascript" src="/static/js/create_server.js"></script>
+{{ template "footer.html" }}
