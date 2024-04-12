@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://localhost:8080/api/v1/installed-firewalls?select_column=installed_firewalls.installed_firewall_id&append_select=true&page=1`)
+    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/installed-firewalls?select_column=installed_firewalls.installed_firewall_id&append_select=true&page=1`)
     datatable = $('#installedFirewallTable').DataTable({
 
         data: retrieveModelData["data"],
@@ -147,7 +147,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://localhost:8080/api/v1/installed-firewalls?select_column=installed_firewalls.installed_firewall_id&append_select=true&page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/installed-firewalls?select_column=installed_firewalls.installed_firewall_id&append_select=true&page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -176,14 +176,14 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-        delete_data("http://localhost:8080/api/v1/installed-firewalls?installed_firewall_id="+list.toString(),
-            `http://localhost:8080/network-management-solutions/list/installed-firewalls`)
+        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/installed-firewalls?installed_firewall_id="+list.toString(),
+            `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/installed-firewalls`)
     })
 
     $('#modalInstalledFirewall').on('show.bs.modal', async function() {
         let dataId = $("#modalInstalledFirewall").attr("data-id");
         console.log(dataId)
-        let installedFirewallResponse = await fetch('http://localhost:8080/api/v1/installed-firewalls/?select_column=installed_firewalls.installed_firewall_id,wan_configs1_ipv4.ip_range&append_select=true&installed_firewall_id=' + dataId);
+        let installedFirewallResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/installed-firewalls/?select_column=installed_firewalls.installed_firewall_id,wan_configs1_ipv4.ip_range&append_select=true&installed_firewall_id=' + dataId);
         let installedFirewallData = await installedFirewallResponse.json()
         console.log(installedFirewallData)
 
@@ -293,8 +293,8 @@ $(document).ready(async function(){
             }
             patchModel(
                 JSON.stringify(installed_firewalls),
-                "http://localhost:8080/api/v1/installed-firewalls?installed_firewall_id="+dataId,
-                `http://localhost:8080/api/v1/installed-firewalls?select_column=installed_firewalls.installed_firewall_id&append_select=true&page=`
+                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/installed-firewalls?installed_firewall_id="+dataId,
+                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/installed-firewalls?select_column=installed_firewalls.installed_firewall_id&append_select=true&page=`
             )
         });
 

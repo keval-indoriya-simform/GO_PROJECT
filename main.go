@@ -29,7 +29,7 @@ func init() {
 // licence.name Apache 2.0
 // licence.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host		localhost:8080
+// @host		to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080
 // @BasePath	/api/v1
 // @schemes	http
 func main() {

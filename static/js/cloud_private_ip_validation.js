@@ -47,13 +47,13 @@
         } else {
             payload["assigned_to_id"] = parseInt(select_users.val())
         }
-        return await postModel(JSON.stringify(payload),"http://localhost:8080/api/v1/cloud-private-ips")
+        return await postModel(JSON.stringify(payload),"http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips")
 
     }
 
     $(document).ready(async function() {
         select_users = $("#assign_to")
-        const userResponse = await fetch('http://localhost:8080/api/v1/users');
+        const userResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/users');
         const UserData = await userResponse.json();
         options =""
         for (index = 0; index < UserData["data"].length; index++) {

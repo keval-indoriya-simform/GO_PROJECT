@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://localhost:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id&append_select=true&page=1`)
+    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id&append_select=true&page=1`)
     datatable = $('#customerLocationTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -44,7 +44,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://localhost:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id&append_select=true&page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id&append_select=true&page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -73,14 +73,14 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-        delete_data("http://localhost:8080/api/v1/customer-locations?customer_location_id="+list.toString(),
-            `http://localhost:8080/network-management-solutions/list/customer-locations`)
+        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?customer_location_id="+list.toString(),
+            `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/customer-locations`)
     })
 
     $('#modalCustomerLocation').on('show.bs.modal', async function() {
         let dataId = $("#modalCustomerLocation").attr("data-id");
         console.log(dataId)
-        let customerLocationResponse = await fetch('http://localhost:8080/api/v1/customer-locations' +
+        let customerLocationResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations' +
             '?customer_location_id=' + dataId+'&select_column=customer_locations.is_primary,' +
             'customer_locations.description&append_select=true');
         let customerLocationData = await customerLocationResponse.json()
@@ -98,8 +98,8 @@ $(document).ready(async function(){
                     // is_primary : customer_is_primary.is(':checked'),
                     updated_by_user_id: parseInt($("#user_id").val())
                 }),
-                "http://localhost:8080/api/v1/customer-locations?customer_location_id="+dataId,
-                `http://localhost:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id&append_select=true&page=`
+                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?customer_location_id="+dataId,
+                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id&append_select=true&page=`
             )
         });
     });

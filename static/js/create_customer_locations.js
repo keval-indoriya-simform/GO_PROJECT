@@ -5,7 +5,7 @@ let create_button = $("#submit-btn"),
     customer_is_primary = $("#flexSwitchCheckChecked")
 
 $(document).ready(async function() {
-    const customerResponse = await fetch('http://localhost:8080/api/v1/customers?select_column=customers.customer_id,customers.name&set_limit=false');
+    const customerResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers?select_column=customers.customer_id,customers.name&set_limit=false');
     const customerData = await customerResponse.json();
     options =""
     for (index = 0; index < customerData["data"].length; index++) {
@@ -22,7 +22,7 @@ $(document).ready(async function() {
                 is_primary : customer_is_primary.is(':checked'),
                 created_by_user_id: parseInt($("#user_id").val()) 
             }),
-            "http://localhost:8080/api/v1/customer-locations"
+            "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations"
         )
     });
 });

@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://localhost:8080/api/v1/email-domains?page=1`)
+    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains?page=1`)
     datatable=$('#emailDomainTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -58,7 +58,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://localhost:8080/api/v1/email-domains?page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains?page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -87,16 +87,16 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-        delete_data("http://localhost:8080/api/v1/email-domains?email_domain_id="+list.toString(),
-            `http://localhost:8080/network-management-solutions/list/email-domains`)
+        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains?email_domain_id="+list.toString(),
+            `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/email-domains`)
     })
 
     $('#emailDomainModal').on('show.bs.modal', async function() {
         let dataId = $("#emailDomainModal").attr("data-id");
         console.log(dataId)
-        let typesResponse=await fetch('http://localhost:8080/api/v1/email-domains/email-account-types?set_limit=false')
+        let typesResponse=await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains/email-account-types?set_limit=false')
         let typesData=await typesResponse.json()
-        let emailResponse = await fetch('http://localhost:8080/api/v1/email-domains?email_domain_id=' + dataId);
+        let emailResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains?email_domain_id=' + dataId);
         let emailData = await emailResponse.json()
         console.log(emailData)
         let selectedValue = emailData["data"][0]["email_account_type_id"]
@@ -175,8 +175,8 @@ $(document).ready(async function(){
                     phone_setting_note:$("#phone_setting_note").val(),
                     updated_by_user_id: parseInt($("#user_id").val()),
                 }),
-                "http://localhost:8080/api/v1/email-domains?email_domain_id="+dataId,
-                `http://localhost:8080/network-management-solutions/list/email-domains`
+                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains?email_domain_id="+dataId,
+                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/email-domains`
             )
         });
     });

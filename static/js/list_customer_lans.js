@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://localhost:8080/api/v1/customer-lans?page=1`)
+    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-lans?page=1`)
     datatable = $('#customerLanTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -80,7 +80,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://localhost:8080/api/v1/customer-lans?page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-lans?page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -109,13 +109,13 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-            delete_data("http://localhost:8080/api/v1/customer-lans?customer_lan_id="+list.toString(),
-                `http://localhost:8080/network-management-solutions/list/customer-lans`)
+            delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-lans?customer_lan_id="+list.toString(),
+                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/customer-lans`)
     })
 
     $('#modalCustomerLan').on('show.bs.modal', async function() {
         var dataId = $(this).attr("data-id");
-        let customerLanResponse = await fetch('http://localhost:8080/api/v1/customer-lans?' +
+        let customerLanResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-lans?' +
             'select_column=customer_lans.*,internet_providers1.other as internet_providers1_other,' +
             'wan_configs1_ipv4.ip_range as ip_range_wan1_ipv4, wan_configs1_ipv4.comment as comment_wan1_ipv4,' +
             'wan_configs1_ipv6.ip_range as ip_range_wan1_ipv6, wan_configs1_ipv6.comment as comment_wan1_ipv6,' +
@@ -201,7 +201,7 @@ $(document).ready(async function(){
             // $("#image_file2").val(customerLanData["data"][0]["customer_location"])
             // $("#image_file3").val(customerLanData["data"][0]["customer_location"])
 
-        const cloudPrivateIpResponse = await fetch('http://localhost:8080/api/v1/cloud-private-ips?' +
+        const cloudPrivateIpResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?' +
             'select_column=cloud_private_ips.cloud_private_ip_id,cloud_private_ips.ipv4_assignment&set_limit=false');
         const cloudPrivateIpData = await cloudPrivateIpResponse.json();
         let options =""
@@ -222,8 +222,8 @@ $(document).ready(async function(){
             console.log(customer_lan)
             await patchModel(
                 JSON.stringify(customer_lan),
-                "http://localhost:8080/api/v1/customer-lans?customer_lan_id=" + dataId,
-                `http://localhost:8080/api/v1/customer-lans?page=`
+                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-lans?customer_lan_id=" + dataId,
+                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-lans?page=`
             )
         });
     });

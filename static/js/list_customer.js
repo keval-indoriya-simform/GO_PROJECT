@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://localhost:8080/api/v1/customers?page=1`)
+    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers?page=1`)
     datatable=$('#customerTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -39,7 +39,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://localhost:8080/api/v1/customers?page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers?page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -68,17 +68,17 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-        delete_data("http://localhost:8080/api/v1/customers?customer_id="+list.toString(),
-            `http://localhost:8080/network-management-solutions/list/customers`)
+        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers?customer_id="+list.toString(),
+            `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/customers`)
     })
 
     $('#customerModal').on('show.bs.modal', async function() {
         let dataId = $("#customerModal").attr("data-id");
         console.log(dataId)
-        let cloudResponse = await fetch('http://localhost:8080/api/v1/customers/cloud-or-onsites?set_limit=false');
+        let cloudResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers/cloud-or-onsites?set_limit=false');
         let cloudData = await cloudResponse.json();
         options =""
-        let customerResponse = await fetch('http://localhost:8080/api/v1/customers?customer_id=' + dataId);
+        let customerResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers?customer_id=' + dataId);
         let customerData = await customerResponse.json()
         console.log(customerData)
         $("#name").val(customerData["data"][0]["name"])
@@ -115,8 +115,8 @@ $(document).ready(async function(){
                     description : $("#description").val(),
                     updated_by_user_id: parseInt($("#user_id").val())
                 }),
-                "http://localhost:8080/api/v1/customers?customer_id="+dataId,
-                `http://localhost:8080/api/v1/customers?page=`
+                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers?customer_id="+dataId,
+                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers?page=`
             )
         });
     });

@@ -1254,7 +1254,7 @@ definitions:
       wan_config_id:
         type: integer
     type: object
-host: localhost:8080
+host: to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080
 info:
   contact:
     email: support@swagger.io

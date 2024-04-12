@@ -1,7 +1,7 @@
 $(document).ready(async function() {
     let submit_button = $("#submit-btn"),
     select_customer_location = $("#customer_location_name")
-    const customerLocationResponse = await fetch('http://localhost:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
+    const customerLocationResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
     const customerLocationData = await customerLocationResponse.json();
     options =""
     for (let index = 0; index < customerLocationData["data"].length; index++) {
@@ -9,7 +9,7 @@ $(document).ready(async function() {
     }
     select_customer_location.append(options).selectpicker('refresh');
 
-    const cloudPrivateIpResponse = await fetch('http://localhost:8080/api/v1/cloud-private-ips?select_column=cloud_private_ips.cloud_private_ip_id,cloud_private_ips.ipv4_assignment&set_limit=false');
+    const cloudPrivateIpResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?select_column=cloud_private_ips.cloud_private_ip_id,cloud_private_ips.ipv4_assignment&set_limit=false');
     const cloudPrivateIpData = await cloudPrivateIpResponse.json();
     let options_private_ip =""
     for (let index = 0; index < cloudPrivateIpData["data"].length; index++) {
@@ -23,7 +23,7 @@ $(document).ready(async function() {
         customer_lan["updated_by_user_id"] = parseInt($("#user_id").val())
         await postModel(
             JSON.stringify(customer_lan),
-            "http://localhost:8080/api/v1/customer-lans"
+            "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-lans"
         )
     });
 

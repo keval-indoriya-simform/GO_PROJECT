@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://localhost:8080/api/v1/cloud-private-ips?page=1`)
+    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?page=1`)
     datatable = $('#cloudPrivateIPTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -36,7 +36,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://localhost:8080/api/v1/cloud-private-ips?page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -59,8 +59,8 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-        delete_data("http://localhost:8080/api/v1/cloud-private-ips?cloud_private_ip_id="+list.toString(),
-            'http://localhost:8080/network-management-solutions/list/cloud-private-ips');
+        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?cloud_private_ip_id="+list.toString(),
+            'http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/cloud-private-ips');
     })
 
     $('#cloudPrivateIPTable').on('click','.editor-edit', function(){
@@ -74,14 +74,14 @@ $(document).ready(async function(){
     $('#modalCloudPrivateIP').on('show.bs.modal', async function() {
         let dataId = $("#modalCloudPrivateIP").attr("data-id");
         console.log(dataId)
-        let cloudPrivateIpResponse = await fetch('http://localhost:8080/api/v1/cloud-private-ips?cloud_private_ip_id=' + dataId);
+        let cloudPrivateIpResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?cloud_private_ip_id=' + dataId);
         let cloudPrivateIpData = await cloudPrivateIpResponse.json()
         console.log(cloudPrivateIpData)
         $("#ipv4_assignment").val(cloudPrivateIpData["data"][0]["ipv4_assignment"])
         $("#ipv6_assignment").val(cloudPrivateIpData["data"][0]["ipv6_assignment"])
         $("#description").val(cloudPrivateIpData["data"][0]["description"])
 
-        let userResponse = await fetch('http://localhost:8080/api/v1/users?set_limit=false');
+        let userResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/users?set_limit=false');
         let UserData = await userResponse.json();
         let selectedValue = cloudPrivateIpData["data"][0]["assigned_to_id"]
         let options = ""
@@ -109,8 +109,8 @@ $(document).ready(async function(){
                     assigned_to_id: assignID,
                     updated_by_user_id: parseInt($("#user_id").val()),
                 }),
-                "http://localhost:8080/api/v1/cloud-private-ips?cloud_private_ip_id="+dataId,
-                'http://localhost:8080/api/v1/cloud-private-ips?page='
+                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?cloud_private_ip_id="+dataId,
+                'http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?page='
             )
         });
     });

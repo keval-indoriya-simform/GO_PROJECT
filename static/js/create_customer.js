@@ -8,7 +8,7 @@ $(document).ready(async function() {
     internet_check = $("#internet_check")
     firewall_check = $("#firewall_check")
     hardware_as_a_service_check = $("#hardware_as_a_service_check")
-    const cloudOrOnsiteResponse = await fetch('http://localhost:8080/api/v1/customers/cloud-or-onsites');
+    const cloudOrOnsiteResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers/cloud-or-onsites');
     const cloudOrOnsiteData = await cloudOrOnsiteResponse.json();
     options =""
     for (index = 0; index < cloudOrOnsiteData["data"].length; index++) {
@@ -28,7 +28,7 @@ $(document).ready(async function() {
         customer_model["created_by_user_id"] = parseInt($("#user_id").val())
         await postModel(
             JSON.stringify(customer_model),
-            "http://localhost:8080/api/v1/customers"
+            "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers"
         )
     });
 
