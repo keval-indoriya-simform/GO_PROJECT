@@ -25,7 +25,7 @@ let create_button = $("#submit-btn"),
     gateway_wan2_ipv6 = $("#validationCustom23")
 
 $(document).ready(async function() {
-    const customerResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
+    const customerResponse = await fetch('http://192.168.49.2:31471/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
     const customerData = await customerResponse.json();
     options =""
     for (index = 0; index < customerData["data"].length; index++) {
@@ -94,7 +94,7 @@ $(document).ready(async function() {
 
         await postModel(
             JSON.stringify(installed_firewalls),
-            "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/installed-firewalls"
+            "http://192.168.49.2:31471/api/v1/installed-firewalls"
         )
     });
 });

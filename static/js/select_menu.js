@@ -28,6 +28,6 @@ const func1=async ()=>{
             'Content-Type': 'application/json;charset=utf-8'
         },
     }
-    const req=await fetch("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customers",options);
+    const req=await fetch("http://192.168.49.2:31471/api/v1/customers",options);
     return await req.json();
 }

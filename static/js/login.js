@@ -41,7 +41,7 @@ const loginValidation=()=>{
 
 $(document).ready(async function() {
     $("#login").click(async function(){
-                let response = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/login', {
+                let response = await fetch('http://192.168.49.2:31471/api/v1/login', {
 
                     // Adding method type
                     method: "POST",
@@ -64,7 +64,7 @@ $(document).ready(async function() {
                         autoDismiss: true,
                         message: 'login Successful!'
                     });
-                    window.location = "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/customer-locations"
+                    window.location = "http://192.168.49.2:31471/network-management-solutions/list/customer-locations"
                 } else {
                     $.toast({
                         type: "info",

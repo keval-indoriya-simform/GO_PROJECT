@@ -17,7 +17,7 @@ import (
 
 var (
 	Route = gin.Default()
-	url   = ginSwagger.URL("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/docs/doc.json")
+	url   = ginSwagger.URL("http://192.168.49.2:31471/docs/doc.json")
 )
 
 func init() {

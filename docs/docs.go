@@ -3838,7 +3838,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080",
+	Host:             "192.168.49.2:31471",
 	BasePath:         "/api/v1",
 	Schemes:          []string{"http"},
 	Title:            "Network Management Solutions API",

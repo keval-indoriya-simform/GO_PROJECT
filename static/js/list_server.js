@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/servers?page=1`)
+    let retrieveModelData = await retrieveModel(`http://192.168.49.2:31471/api/v1/servers?page=1`)
     datatable =$('#serverTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -46,7 +46,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/servers?page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://192.168.49.2:31471/api/v1/servers?page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -83,14 +83,14 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/servers?server_id="+list.toString(),
-            `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/servers`)
+        delete_data("http://192.168.49.2:31471/api/v1/servers?server_id="+list.toString(),
+            `http://192.168.49.2:31471/network-management-solutions/list/servers`)
     })
 
     $('#serverModal').on('show.bs.modal', async function() {
         let dataId = $("#serverModal").attr("data-id");
         console.log(dataId)
-        let serverResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/servers?server_id=' + dataId);
+        let serverResponse = await fetch('http://192.168.49.2:31471/api/v1/servers?server_id=' + dataId);
         let serverData = await serverResponse.json()
         console.log(serverData)
         $("#validationHostName").val(serverData["data"][0]["host_name"])
@@ -144,8 +144,8 @@ $(document).ready(async function(){
                         idrac: $("#validationIdrac").val(),
                         updated_by_user_id: parseInt($("#user_id").val())
                     }),
-                    "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/servers?server_id=" + dataId,
-                    `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/servers?page=`
+                    "http://192.168.49.2:31471/api/v1/servers?server_id=" + dataId,
+                    `http://192.168.49.2:31471/api/v1/servers?page=`
                 )
             } else{
             document.getElementById("invalid-date").innerHTML="Expiration date should be greater than purchase date"

@@ -10,7 +10,7 @@ getCloudPublicIpForm.addEventListener('submit',async (e) =>{
         console.log(cloud_public_ip_model)
         response = await postModel(
             JSON.stringify(cloud_public_ip_model),
-            "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-public-ips"
+            "http://192.168.49.2:31471/api/v1/cloud-public-ips"
         )
         return response.json()
     } catch (error) {
@@ -29,7 +29,7 @@ function getCloudPublicIpFormData(cloud_public_ip_model){
 
 $(document).ready(async function(){
     select_customer_location = $("#customer_location_name")
-    const customerLocationResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
+    const customerLocationResponse = await fetch('http://192.168.49.2:31471/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
     const customerLocationData = await customerLocationResponse.json();
     options =""
     for (let index = 0; index < customerLocationData["data"].length; index++) {
@@ -38,7 +38,7 @@ $(document).ready(async function(){
     select_customer_location.append(options).selectpicker('refresh');
 
     select_post_forward_ip = $("#validationPostForwardIp")
-    const postForwardResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips');
+    const postForwardResponse = await fetch('http://192.168.49.2:31471/api/v1/cloud-private-ips');
     const postForwardData = await postForwardResponse.json();
     console.log(postForwardData)
     let options_post_forward =""

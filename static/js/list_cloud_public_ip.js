@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-public-ips?page=1`)
+    let retrieveModelData = await retrieveModel(`http://192.168.49.2:31471/api/v1/cloud-public-ips?page=1`)
     datatable = $('#cloudPublicIpTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -35,7 +35,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-public-ips?page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://192.168.49.2:31471/api/v1/cloud-public-ips?page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -64,17 +64,17 @@ $(document).ready(async function(){
     });
 
     $("#delete-data-btn").click(function () {
-        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-public-ips?cloud_public_ip_id="+list.toString(),
-            `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/cloud-public-ips` )
+        delete_data("http://192.168.49.2:31471/api/v1/cloud-public-ips?cloud_public_ip_id="+list.toString(),
+            `http://192.168.49.2:31471/network-management-solutions/list/cloud-public-ips` )
     })
 
     $('#cloudPublicIpModal').on('show.bs.modal', async function() {
         let dataId = $("#cloudPublicIpModal").attr("data-id");
         console.log(dataId)
-        let cloudPublicIpResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-public-ips?cloud_public_ip_id=' + dataId);
+        let cloudPublicIpResponse = await fetch('http://192.168.49.2:31471/api/v1/cloud-public-ips?cloud_public_ip_id=' + dataId);
         let cloudPublicIpData = await cloudPublicIpResponse.json()
         console.log(cloudPublicIpData)
-        let postForwardResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-private-ips?set_limit=false');
+        let postForwardResponse = await fetch('http://192.168.49.2:31471/api/v1/cloud-private-ips?set_limit=false');
         let postForwardData = await postForwardResponse.json()
         console.log(postForwardData)
         let selectedValue = cloudPublicIpData["data"][0]["post_forward_ip"]
@@ -104,8 +104,8 @@ $(document).ready(async function(){
                     cloud_vm_name : $("#validationCloudVmName").val(),
                     updated_by_user_id: parseInt($("#user_id").val())
                 }),
-                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-public-ips?cloud_public_ip_id="+dataId,
-                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/cloud-public-ips?page=`
+                "http://192.168.49.2:31471/api/v1/cloud-public-ips?cloud_public_ip_id="+dataId,
+                `http://192.168.49.2:31471/api/v1/cloud-public-ips?page=`
             )
         });
     });

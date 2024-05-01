@@ -16,6 +16,6 @@
     function timerIncrement() {
         idleTime = idleTime + 1;
         if (idleTime > 15) { // 15 minutes
-            window.location = "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/logout"
+            window.location = "http://192.168.49.2:31471/network-management-solutions/logout"
         }
     }

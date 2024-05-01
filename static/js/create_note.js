@@ -3,7 +3,7 @@ let note_model={}
 $(document).ready(async function() {
     submit_button = $("#submit-btn")
     select_customer_location = $("#customer_location_name")
-    const customerLocationResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
+    const customerLocationResponse = await fetch('http://192.168.49.2:31471/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
     const customerLocationData = await customerLocationResponse.json();
     options =""
     for (index = 0; index < customerLocationData["data"].length; index++) {
@@ -12,7 +12,7 @@ $(document).ready(async function() {
     select_customer_location.append(options).selectpicker('refresh');
 
     select_users = $("#assign_to")
-    const userResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/users');
+    const userResponse = await fetch('http://192.168.49.2:31471/api/v1/users');
     const UserData = await userResponse.json();
     options =""
     for (index = 0; index < UserData["data"].length; index++) {
@@ -34,7 +34,7 @@ $(document).ready(async function() {
 
         await postModel(
             JSON.stringify(note_model),
-            "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/notes"
+            "http://192.168.49.2:31471/api/v1/notes"
         )
     });
 });

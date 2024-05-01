@@ -54,10 +54,10 @@ function createEmailDomain(key,val){
 }
 $(document).ready(async function() {
 
-    const customerLocationResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name');
+    const customerLocationResponse = await fetch('http://192.168.49.2:31471/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name');
     const customerLocationData = await customerLocationResponse.json();
     // console.log(customerLocationData)
-    const emailAccountTypesResponse=await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains/email-account-types')
+    const emailAccountTypesResponse=await fetch('http://192.168.49.2:31471/api/v1/email-domains/email-account-types')
     const emailAccountTypesData=await emailAccountTypesResponse.json()
     console.log(emailAccountTypesData)
 
@@ -82,7 +82,7 @@ $(document).ready(async function() {
         console.log("hello")
         await postModel(
             JSON.stringify(emailDomainObj),
-            "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/email-domains"
+            "http://192.168.49.2:31471/api/v1/email-domains"
         )
     });
 

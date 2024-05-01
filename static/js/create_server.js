@@ -8,7 +8,7 @@ getServerForm.addEventListener("submit",async (e)=>{
             server_model=getServerFormData(server_model)
             response = await postModel(
                 JSON.stringify(server_model),
-                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/servers"
+                "http://192.168.49.2:31471/api/v1/servers"
             )
             return response.json()
         }catch(error){
@@ -25,7 +25,7 @@ function checkExpirationDate(startDate,endDate){
 
 $(document).ready(async function(){
     select_customer_location = $("#customer_location_name")
-    const customerLocationResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
+    const customerLocationResponse = await fetch('http://192.168.49.2:31471/api/v1/customer-locations?select_column=customer_locations.customer_location_id,customer_locations.name&set_limit=false');
     const customerLocationData = await customerLocationResponse.json();
     options =""
     for (let index = 0; index < customerLocationData["data"].length; index++) {

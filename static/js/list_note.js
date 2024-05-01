@@ -1,5 +1,5 @@
 $(document).ready(async function(){
-    let retrieveModelData = await retrieveModel(`http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/notes?page=1`)
+    let retrieveModelData = await retrieveModel(`http://192.168.49.2:31471/api/v1/notes?page=1`)
     datatable = $('#noteTable').DataTable({
         data: retrieveModelData["data"],
         deferRender: true,
@@ -37,7 +37,7 @@ $(document).ready(async function(){
         ],
     });
 
-    paginationLoad(retrieveModelData["total_pages"], `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/notes?page=`)
+    paginationLoad(retrieveModelData["total_pages"], `http://192.168.49.2:31471/api/v1/notes?page=`)
 
     function RemoveElementFromArray(number) {
         this.list.forEach((value,index)=>{
@@ -66,17 +66,17 @@ $(document).ready(async function(){
     });
 
     $("#delete-btn").click(function () {
-        delete_data("http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/notes?note_id="+list.toString(),
-            `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/network-management-solutions/list/notes`)
+        delete_data("http://192.168.49.2:31471/api/v1/notes?note_id="+list.toString(),
+            `http://192.168.49.2:31471/network-management-solutions/list/notes`)
     })
 
     $('#modelNote').on('show.bs.modal', async function() {
         let dataId = $("#modelNote").attr("data-id");
-        let noteResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/notes?note_id=' + dataId);
+        let noteResponse = await fetch('http://192.168.49.2:31471/api/v1/notes?note_id=' + dataId);
         let noteData = await noteResponse.json()
         console.log(noteData)
         select_users = $("#assign_to")
-        let userResponse = await fetch('http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/users?set_limit=false');
+        let userResponse = await fetch('http://192.168.49.2:31471/api/v1/users?set_limit=false');
         let UserData = await userResponse.json();
         console.log(UserData)
         let options =""
@@ -118,8 +118,8 @@ $(document).ready(async function(){
             }
             await patchModel(
                 JSON.stringify(note_model),
-                "http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/notes?note_id="+dataId,
-                `http://to-do-alb-1758059883.us-east-1.elb.amazonaws.com:8080/api/v1/notes?page=`
+                "http://192.168.49.2:31471/api/v1/notes?note_id="+dataId,
+                `http://192.168.49.2:31471/api/v1/notes?page=`
             )
         });
     });
