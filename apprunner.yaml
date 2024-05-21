@@ -1,0 +1,32 @@
+version: 1.0
+runtime: go1 
+build:
+  commands:
+    build:        
+      - go build main.go
+run:
+  runtime-version: 1.18.7
+  command: ./main
+  network: 
+    port: 8000
+    env: APP_PORT  
+  env:
+    - name: SESSION_SECRET_KEY
+      value: "secret"
+    - name: SERVER_RUN_PORT
+      value: "8080"
+    - name: DB_PORT
+      value: "5432"
+    - name: DB_HOST
+      value: "postgresdb.c9a6i0kwowg4.us-east-1.rds.amazonaws.com"
+    - name: DB_USER
+      value: "postgres"
+    - name: DB_PASSWORD
+      value: "Keval0810"
+    - name: DB_NAME
+      value: "postgres"
+    - name: PAGE_LIMIT
+      value: "20"
+    - name: ORDER_BY
+      value: "ASC"
+      
